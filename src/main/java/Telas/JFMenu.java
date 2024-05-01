@@ -27,19 +27,61 @@ public class JFMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItemAddCliente = new javax.swing.JMenuItem();
+        jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItemAddFerramenta = new javax.swing.JMenuItem();
+        jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(800, 550));
+
+        jPanel1.setMaximumSize(new java.awt.Dimension(800, 550));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 527, Short.MAX_VALUE)
         );
+
+        jMenu1.setText("Amigos");
+
+        jMenuItemAddCliente.setText("Cadastrar clientes");
+        jMenuItemAddCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAddClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemAddCliente);
+
+        jMenuItemGerenciaCliente.setText("Gerenciar clientes");
+        jMenuItemGerenciaCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGerenciaClienteActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemGerenciaCliente);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Ferramentas");
+
+        jMenuItemAddFerramenta.setText("Cadastrar ferramentas");
+        jMenu2.add(jMenuItemAddFerramenta);
+
+        jMenuItemGerenciaFerramenta.setText("Gerenciar ferramentas");
+        jMenu2.add(jMenuItemGerenciaFerramenta);
+
+        jMenuBar1.add(jMenu2);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -54,6 +96,14 @@ public class JFMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItemAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemAddClienteActionPerformed
+
+    private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItemGerenciaClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -91,6 +141,13 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemAddCliente;
+    private javax.swing.JMenuItem jMenuItemAddFerramenta;
+    private javax.swing.JMenuItem jMenuItemGerenciaCliente;
+    private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
