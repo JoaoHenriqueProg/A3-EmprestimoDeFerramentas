@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="69be362b-b3ff-49c2-be5c-c363880632fa" name="Changes" comment="Classes básicas">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Amigo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Ferramenta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Amigo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Amigo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Ferramenta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Ferramenta.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
