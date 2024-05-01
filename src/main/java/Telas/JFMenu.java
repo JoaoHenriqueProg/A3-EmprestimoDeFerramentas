@@ -36,6 +36,7 @@ public class JFMenu extends javax.swing.JFrame {
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Menu");
         setMaximumSize(new java.awt.Dimension(800, 550));
 
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 550));
@@ -74,6 +75,11 @@ public class JFMenu extends javax.swing.JFrame {
         jMenu2.setText("Ferramentas");
 
         jMenuItemAddFerramenta.setText("Cadastrar ferramentas");
+        jMenuItemAddFerramenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemAddFerramentaActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItemAddFerramenta);
 
         jMenuItemGerenciaFerramenta.setText("Gerenciar ferramentas");
@@ -102,8 +108,14 @@ public class JFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemAddClienteActionPerformed
 
     private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
-        // TODO add your handling code here:
+        JFGerenciarAmigos objeto = new JFGerenciarAmigos();
+        objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciaClienteActionPerformed
+
+    private void jMenuItemAddFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddFerramentaActionPerformed
+        JFAdicionar_ferramenta objeto = new JFAdicionar_ferramenta();
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemAddFerramentaActionPerformed
 
     /**
      * @param args the command line arguments
