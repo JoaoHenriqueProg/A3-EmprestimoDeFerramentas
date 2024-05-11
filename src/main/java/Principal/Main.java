@@ -1,9 +1,9 @@
 package Principal;
-import Telas.JFMenu;
+import Telas.JFLogin;
 
 public class Main {
     public static void main(String[] args) {
-            JFMenu objetotela = new JFMenu(); 
+            JFLogin objetotela = new JFLogin(); 
             objetotela.setVisible(true);
     }
 }
