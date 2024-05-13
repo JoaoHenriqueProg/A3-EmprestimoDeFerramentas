@@ -3,17 +3,17 @@ package Model;
 public class Amigo {
     private String nome;
     private String endereco;
-    private String cpf;
+    private String telefone;
     private int id;
 
     public Amigo() {
         this("", "", "", 0);
     }
 
-    public Amigo(String nome, String endereco, String cpf, int id) {
+    public Amigo(String nome, String endereco, String telefone, int id) {
         this.nome = nome;
         this.endereco = endereco;
-        this.cpf = cpf;
+        this.telefone = telefone;
         this.id = id;
     }
 
@@ -33,19 +33,19 @@ public class Amigo {
         this.endereco = endereco;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+    
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }
