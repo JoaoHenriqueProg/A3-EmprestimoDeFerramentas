@@ -42,10 +42,17 @@ public class JFMenu extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
+        setBackground(new java.awt.Color(0, 71, 119));
         setMaximumSize(new java.awt.Dimension(800, 550));
 
+        jPanel1.setBackground(new java.awt.Color(0, 71, 119));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 550));
 
+        jScrollPane1.setBackground(new java.awt.Color(72, 169, 166));
+        jScrollPane1.setForeground(new java.awt.Color(255, 255, 252));
+
+        jTable1.setBackground(new java.awt.Color(204, 204, 204));
+        jTable1.setForeground(new java.awt.Color(255, 255, 252));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 { new Boolean(false), null, null, null, null},
@@ -72,6 +79,7 @@ public class JFMenu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setText("Ferramentas alugadas:");
@@ -123,9 +131,15 @@ public class JFMenu extends javax.swing.JFrame {
                     .addComponent(jButton3))
                 .addGap(27, 27, 27)
                 .addComponent(jButton2)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
+        jMenuBar1.setBackground(new java.awt.Color(0, 71, 119));
+        jMenuBar1.setBorder(null);
+        jMenuBar1.setForeground(new java.awt.Color(255, 255, 252));
+
+        jMenu1.setBackground(new java.awt.Color(255, 255, 252));
+        jMenu1.setForeground(new java.awt.Color(255, 255, 252));
         jMenu1.setText("Gerenciamento");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
