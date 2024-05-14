@@ -8,7 +8,7 @@ public class Amigo {
     public Amigo() {
         this("", "", "", 0);
     }
-
+    // teste
     public Amigo(String nome, String endereco, String telefone, int id) {
         this.nome = nome;
         this.endereco = endereco;
