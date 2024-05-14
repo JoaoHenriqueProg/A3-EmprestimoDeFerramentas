@@ -12,7 +12,6 @@ public class JFLogin extends javax.swing.JFrame {
 
    
     public JFLogin() {
-        setLocationRelativeTo(null);
         initComponents();
     }
 
@@ -94,6 +93,7 @@ public class JFLogin extends javax.swing.JFrame {
         
         if (senha1.equals(senha)) {
             JFMenu objetotela = new JFMenu();
+            objetotela.setLocationRelativeTo(null);
             objetotela.setVisible(true);
             this.dispose();
         }
