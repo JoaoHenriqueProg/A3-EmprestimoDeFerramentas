@@ -4,6 +4,9 @@
  */
 package Telas;
 
+import Model.Ferramenta;
+import dao.FerramentaDAO;
+
 /**
  *
  * @author isado
@@ -139,6 +142,14 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
         // TODO add your handling code here:
+        FerramentaDAO dao = new FerramentaDAO();
+        String nome = JTFNome.getText();
+        int quant = Integer.parseInt(JTFQuantidade.getText());
+        double preco = Double.parseDouble(JTFPreco.getText());
+        
+        for (int i = 0; i < quant; i++) {
+            dao.insertFerramentaBD(new Ferramenta(nome, dao.maiorID() + 1, preco));
+        }
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
