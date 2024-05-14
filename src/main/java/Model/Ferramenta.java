@@ -9,7 +9,7 @@ public class Ferramenta {
         this("", 0, 0);
     }
 
-    // commit teste 2
+    // commit teste 23
     public Ferramenta(String nome, int id, double preco_de_aquisicao) {
         this.nome = nome;
         this.id = id;
