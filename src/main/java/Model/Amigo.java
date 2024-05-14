@@ -5,7 +5,6 @@ public class Amigo {
     private String endereco;
     private String telefone;
     private int id;
-
     public Amigo() {
         this("", "", "", 0);
     }
@@ -44,7 +43,7 @@ public class Amigo {
     public String getTelefone() {
         return telefone;
     }
-
+// commit teste
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
