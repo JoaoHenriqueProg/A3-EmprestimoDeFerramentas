@@ -37,7 +37,6 @@ public class JFMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItemAddCliente = new javax.swing.JMenuItem();
         jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         jMenuItemAddFerramenta = new javax.swing.JMenuItem();
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
 
@@ -127,7 +126,12 @@ public class JFMenu extends javax.swing.JFrame {
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("Amigos");
+        jMenu1.setText("Gerenciamento");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItemAddCliente.setText("Cadastrar clientes");
         jMenuItemAddCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -145,22 +149,23 @@ public class JFMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemGerenciaCliente);
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Ferramentas");
-
         jMenuItemAddFerramenta.setText("Cadastrar ferramentas");
         jMenuItemAddFerramenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItemAddFerramentaActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItemAddFerramenta);
+        jMenu1.add(jMenuItemAddFerramenta);
 
         jMenuItemGerenciaFerramenta.setText("Gerenciar ferramentas");
-        jMenu2.add(jMenuItemGerenciaFerramenta);
+        jMenuItemGerenciaFerramenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemGerenciaFerramentaActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemGerenciaFerramenta);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -184,11 +189,13 @@ public class JFMenu extends javax.swing.JFrame {
 
     private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
         JFGerenciarAmigos objeto = new JFGerenciarAmigos();
+        objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciaClienteActionPerformed
 
     private void jMenuItemAddFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddFerramentaActionPerformed
         JFAdicionar_ferramenta objeto = new JFAdicionar_ferramenta();
+        objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemAddFerramentaActionPerformed
 
@@ -199,6 +206,16 @@ public class JFMenu extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItemGerenciaFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaFerramentaActionPerformed
+        JFGerenciarFerramentas objeto = new JFGerenciarFerramentas();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemGerenciaFerramentaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,7 +258,6 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemAddCliente;
     private javax.swing.JMenuItem jMenuItemAddFerramenta;

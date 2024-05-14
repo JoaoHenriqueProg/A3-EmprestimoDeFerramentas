@@ -6,8 +6,11 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Amigos"/>
+            <Property name="text" type="java.lang.String" value="Gerenciamento"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
+          </Events>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAddCliente">
               <Properties>
@@ -25,13 +28,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemGerenciaClienteActionPerformed"/>
               </Events>
             </MenuItem>
-          </SubComponents>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Ferramentas"/>
-          </Properties>
-          <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItemAddFerramenta">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Cadastrar ferramentas"/>
@@ -44,6 +40,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gerenciar ferramentas"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemGerenciaFerramentaActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
