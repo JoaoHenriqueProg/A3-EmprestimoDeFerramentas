@@ -1,6 +1,7 @@
 package dao;
 
 import Model.Ferramenta;
+import Model.SecretsLoader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -62,7 +63,7 @@ public class FerramentaDAO {
             String url = "jdbc:mysql://" + server + ":3306/"
                     + database + "?useTimezone=true&serverTimezone=UTC";
             String user = "root";
-            String password = "MUDAR AQUI";
+            String password = SecretsLoader.getSqlPassword();
 // Conectando..
             connection = DriverManager.getConnection(url, user, password);
 // Testando..
