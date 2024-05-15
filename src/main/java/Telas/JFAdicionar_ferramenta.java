@@ -41,9 +41,11 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 71, 119));
         jPanel1.setToolTipText("Adicionar ferramentas");
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        JTFNome.setBackground(new java.awt.Color(255, 255, 252));
         JTFNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFNomeActionPerformed(evt);
@@ -52,6 +54,8 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
 
         jLabel1.setText("Nome da Ferramenta:");
 
+        JBAdicionar.setBackground(new java.awt.Color(152, 206, 0));
+        JBAdicionar.setForeground(new java.awt.Color(1, 32, 15));
         JBAdicionar.setText("Adicionar");
         JBAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,12 +65,15 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
 
         jLabel2.setText("Preço de Aquisição:");
 
+        JTFPreco.setBackground(new java.awt.Color(255, 255, 252));
         JTFPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JTFPrecoActionPerformed(evt);
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(152, 206, 0));
+        jButton2.setForeground(new java.awt.Color(1, 32, 15));
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,6 +83,7 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
 
         jLabel3.setText("Quantidade:");
 
+        JTFQuantidade.setBackground(new java.awt.Color(255, 255, 252));
         JTFQuantidade.setText("0");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
