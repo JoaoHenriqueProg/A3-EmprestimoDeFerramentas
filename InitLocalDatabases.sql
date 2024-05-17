@@ -11,4 +11,13 @@ CREATE TABLE TBFerramentas (
 	PRIMARY KEY(id)
 );
 
-# TODO: Tabela de amigos
+# Cria a tabela de amigas
+CREATE DATABASE IF NOT EXISTS TBAmigos;
+USE TBAmigos;
+DROP TABLE IF EXISTS TBAmigos;
+CREATE TABLE TBAmigos(
+	id INTEGER NOT NULL,
+	nome VARCHAR(100),
+	numero VARCHAR(11),
+	PRIMARY KEY(id)
+);
