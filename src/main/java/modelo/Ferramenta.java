@@ -1,4 +1,4 @@
-package Model;
+package modelo;
 
 public class Ferramenta {
     private String nome;

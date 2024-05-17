@@ -1,6 +1,6 @@
-package Principal;
-import Model.SecretsLoader;
-import Telas.JFLogin;
+package principal;
+import modelo.SecretsLoader;
+import telas.JFLogin;
 
 public class Main {
     public static void main(String[] args) {
