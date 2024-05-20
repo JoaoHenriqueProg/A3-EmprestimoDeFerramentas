@@ -35,32 +35,32 @@ public class JFMenu extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItemAddCliente = new javax.swing.JMenuItem();
         jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
-        jMenuItemAddFerramenta = new javax.swing.JMenuItem();
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
         setBackground(new java.awt.Color(0, 71, 119));
 
-        jPanel1.setBackground(new java.awt.Color(0, 71, 119));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setMaximumSize(new java.awt.Dimension(800, 550));
 
         jScrollPane1.setBackground(new java.awt.Color(72, 169, 166));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 252));
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
+        jTable1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         jTable1.setForeground(new java.awt.Color(255, 255, 252));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                { new Boolean(false), null, null, null, null},
+                { new Boolean(true), null, null, null, null},
                 { new Boolean(false), null, null, null, null},
                 { new Boolean(false), null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
-                "Selecionar", "Ferramenta", "Cliente", "Prazo devolução", "Data do aluguel"
+                "", "Ferramenta", "Cliente", "Prazo devolução", "Data do aluguel"
             }
         ) {
             Class[] types = new Class [] {
@@ -78,26 +78,44 @@ public class JFMenu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jTable1.setGridColor(new java.awt.Color(0, 0, 0));
+        jTable1.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        jTable1.setShowGrid(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setText("Ferramentas alugadas:");
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Alugueis pendentes:");
 
+        jButton1.setBackground(new java.awt.Color(73, 159, 104));
+        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Alugar ferramenta");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(186, 63, 29));
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Extornar..");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(73, 159, 104));
+        jButton3.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Imprimir relatório");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,7 +148,7 @@ public class JFMenu extends javax.swing.JFrame {
                     .addComponent(jButton3))
                 .addGap(27, 27, 27)
                 .addComponent(jButton2)
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         jMenuBar1.setBackground(new java.awt.Color(0, 71, 119));
@@ -146,14 +164,6 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItemAddCliente.setText("Cadastrar clientes");
-        jMenuItemAddCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAddClienteActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemAddCliente);
-
         jMenuItemGerenciaCliente.setText("Gerenciar clientes");
         jMenuItemGerenciaCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,14 +171,6 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItemGerenciaCliente);
-
-        jMenuItemAddFerramenta.setText("Cadastrar ferramentas");
-        jMenuItemAddFerramenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemAddFerramentaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemAddFerramenta);
 
         jMenuItemGerenciaFerramenta.setText("Gerenciar ferramentas");
         jMenuItemGerenciaFerramenta.addActionListener(new java.awt.event.ActionListener() {
@@ -179,6 +181,9 @@ public class JFMenu extends javax.swing.JFrame {
         jMenu1.add(jMenuItemGerenciaFerramenta);
 
         jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Configurações");
+        jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
 
@@ -197,21 +202,11 @@ public class JFMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItemAddClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddClienteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItemAddClienteActionPerformed
-
     private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
         JFGerenciarAmigos objeto = new JFGerenciarAmigos();
         objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciaClienteActionPerformed
-
-    private void jMenuItemAddFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemAddFerramentaActionPerformed
-        JFAdicionar_ferramenta objeto = new JFAdicionar_ferramenta();
-        objeto.setLocationRelativeTo(null);
-        objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemAddFerramentaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -272,9 +267,8 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItemAddCliente;
-    private javax.swing.JMenuItem jMenuItemAddFerramenta;
     private javax.swing.JMenuItem jMenuItemGerenciaCliente;
     private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
     private javax.swing.JPanel jPanel1;
