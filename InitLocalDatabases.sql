@@ -18,6 +18,7 @@ DROP TABLE IF EXISTS TBAmigos;
 CREATE TABLE TBAmigos(
 	id INTEGER NOT NULL,
 	nome VARCHAR(100),
+	endereco VARCHAR(100),
 	numero VARCHAR(11),
 	PRIMARY KEY(id)
 );
