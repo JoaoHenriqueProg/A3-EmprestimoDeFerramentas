@@ -6,6 +6,7 @@ package telas;
 
 import dao.AmigoDAO;
 import dao.FerramentaDAO;
+import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Ferramenta;
 
@@ -20,6 +21,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
      */
     public JFGerenciarAmigos() {
         initComponents();
+        renderAmigosTable();
     }
 
     /**
@@ -43,7 +45,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         JBAdicionar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTAmigos = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
@@ -63,7 +65,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar amigos");
         setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(804, 550));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 550));
@@ -112,40 +113,45 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTAmigos.setBackground(new java.awt.Color(204, 204, 204));
+        JTAmigos.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JTAmigos.setForeground(new java.awt.Color(0, 0, 0));
+        JTAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "Usuario inicial", "(48) 91234-5678", "usuraio_inicial@gmail.com", "12"},
-                {null, null, null, null, null}
+                {"123", "Usuario inicial", "(48) 91234-5678", "12"},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Número", "Email", "Quantidade de ferramenta"
+                "Id", "Nome", "Número", "Quantidade de ferramenta"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
-        jTable1.setShowGrid(false);
-        jScrollPane1.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(1);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setPreferredWidth(140);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setPreferredWidth(120);
+        JTAmigos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JTAmigos.setGridColor(new java.awt.Color(51, 51, 51));
+        JTAmigos.setShowGrid(false);
+        jScrollPane1.setViewportView(JTAmigos);
+        if (JTAmigos.getColumnModel().getColumnCount() > 0) {
+            JTAmigos.getColumnModel().getColumn(0).setResizable(false);
+            JTAmigos.getColumnModel().getColumn(0).setPreferredWidth(1);
+            JTAmigos.getColumnModel().getColumn(1).setResizable(false);
+            JTAmigos.getColumnModel().getColumn(2).setResizable(false);
+            JTAmigos.getColumnModel().getColumn(2).setPreferredWidth(50);
+            JTAmigos.getColumnModel().getColumn(3).setResizable(false);
+            JTAmigos.getColumnModel().getColumn(3).setPreferredWidth(120);
         }
 
         jLabel5.setText("Id");
@@ -242,6 +248,17 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void renderAmigosTable() {                                            
+        AmigoDAO dao = new AmigoDAO();
+        DefaultTableModel model = (DefaultTableModel) JTAmigos.getModel();
+        while (model.getRowCount() != 0) {
+            model.removeRow(0);
+        }
+        for (Amigo amigue : dao.getMinhaLista()) {
+            model.addRow(new Object[]{amigue.getId(), amigue.getNome(), amigue.getTelefone(), 0});
+        }
+    }
+    
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
@@ -265,6 +282,8 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         String numero = JTFNumero.getText();
         
         dao.insertAmigoBD(new Amigo(nome, endereco, numero, dao.maiorID() + 1));
+        
+        renderAmigosTable();
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
@@ -313,6 +332,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAdicionar;
+    private javax.swing.JTable JTAmigos;
     private javax.swing.JTextField JTFEmail;
     private javax.swing.JTextField JTFEndereco;
     private javax.swing.JTextField JTFNome;
@@ -327,7 +347,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
