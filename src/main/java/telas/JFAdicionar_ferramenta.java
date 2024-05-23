@@ -40,8 +40,9 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
         JTFQuantidade = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Adicionar ferramenta");
 
-        jPanel1.setBackground(new java.awt.Color(0, 71, 119));
+        jPanel1.setBackground(new java.awt.Color(54, 70, 125));
         jPanel1.setToolTipText("Adicionar ferramentas");
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -52,10 +53,13 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nome da Ferramenta:");
 
-        JBAdicionar.setBackground(new java.awt.Color(152, 206, 0));
-        JBAdicionar.setForeground(new java.awt.Color(1, 32, 15));
+        JBAdicionar.setBackground(new java.awt.Color(73, 159, 104));
+        JBAdicionar.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        JBAdicionar.setForeground(new java.awt.Color(255, 255, 255));
         JBAdicionar.setText("Adicionar");
         JBAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,6 +67,8 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Preço de Aquisição:");
 
         JTFPreco.setBackground(new java.awt.Color(255, 255, 252));
@@ -72,8 +78,9 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(152, 206, 0));
-        jButton2.setForeground(new java.awt.Color(1, 32, 15));
+        jButton2.setBackground(new java.awt.Color(73, 159, 104));
+        jButton2.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Cancelar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -81,6 +88,8 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Quantidade:");
 
         JTFQuantidade.setBackground(new java.awt.Color(255, 255, 252));
@@ -101,17 +110,16 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
                         .addGap(48, 48, 48)
                         .addComponent(JBAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(JTFNome)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(JTFPreco, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(JTFQuantidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(56, Short.MAX_VALUE))
+                    .addComponent(JTFPreco)
+                    .addComponent(JTFQuantidade)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)

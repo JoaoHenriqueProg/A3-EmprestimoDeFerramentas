@@ -61,7 +61,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Gerenciar amigos");
         setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(804, 550));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(800, 550));
@@ -110,6 +112,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             }
         });
 
+        jTable1.setBackground(new java.awt.Color(204, 204, 204));
+        jTable1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"123", "Usuario inicial", "(48) 91234-5678", "usuraio_inicial@gmail.com", "12"},
@@ -127,6 +132,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
+        jTable1.setShowGrid(false);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
             jTable1.getColumnModel().getColumn(0).setResizable(false);
@@ -185,7 +193,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -212,7 +220,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                         .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -225,11 +233,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGap(0, 550, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
