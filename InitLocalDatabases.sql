@@ -8,6 +8,7 @@ CREATE TABLE TBFerramentas (
 	id INTEGER NOT NULL,
 	nome VARCHAR(100),
 	preco DOUBLE,
+    emprestimo INTEGER NOT NULL,
 	PRIMARY KEY(id)
 );
 
