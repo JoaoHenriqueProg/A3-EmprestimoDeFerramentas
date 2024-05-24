@@ -39,7 +39,7 @@ public class JFConfiguracoes extends javax.swing.JFrame {
         jPasswordField1.setText("jPasswordField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(800, 550));
+        setPreferredSize(new java.awt.Dimension(400, 300));
 
         jPanel1.setBackground(new java.awt.Color(54, 70, 125));
         jPanel1.setPreferredSize(new java.awt.Dimension(400, 300));
