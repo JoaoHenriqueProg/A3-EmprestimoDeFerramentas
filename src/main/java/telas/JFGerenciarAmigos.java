@@ -50,6 +50,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         JTFIdRemover = new javax.swing.JTextField();
         JBRemover = new javax.swing.JButton();
+        JBAplicar = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,6 +172,14 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             }
         });
 
+        JBAplicar.setBackground(new java.awt.Color(54, 70, 125));
+        JBAplicar.setText("Aplicar mudanças");
+        JBAplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAplicarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -190,7 +199,8 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                     .addComponent(JTFEmail)
                     .addComponent(JTFIdRemover, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JBAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JBRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JBRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JBAplicar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
@@ -199,7 +209,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel1)
@@ -226,7 +236,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JTFIdRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JBRemover)))
+                        .addComponent(JBRemover)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBAplicar)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -297,6 +309,18 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         renderAmigosTable();
     }//GEN-LAST:event_JBRemoverActionPerformed
 
+    private void JBAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAplicarActionPerformed
+        AmigoDAO dao = new AmigoDAO();
+        for (int i = 0; i < JTAmigos.getRowCount(); i++) {
+            String id = JTAmigos.getModel().getValueAt(i, 0).toString();
+            String nome = JTAmigos.getModel().getValueAt(i, 1).toString();
+            String endereco = JTAmigos.getModel().getValueAt(i, 2).toString();
+            String numero = JTAmigos.getModel().getValueAt(i, 3).toString();
+            dao.updateAmigoBD(new Amigo(nome, endereco, numero, Integer.parseInt(id)));
+        }
+        renderAmigosTable();
+    }//GEN-LAST:event_JBAplicarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -335,6 +359,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAdicionar;
+    private javax.swing.JButton JBAplicar;
     private javax.swing.JButton JBRemover;
     private javax.swing.JTable JTAmigos;
     private javax.swing.JTextField JTFEmail;
