@@ -4,6 +4,11 @@
  */
 package telas;
 
+import dao.FerramentaDAO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.Ferramenta;
+
 /**
  *
  * @author leand
@@ -15,6 +20,7 @@ public class JFMenu extends javax.swing.JFrame {
      */
     public JFMenu() {
         initComponents();
+        renderEmprestimosTable();
     }
 
     /**
@@ -28,7 +34,7 @@ public class JFMenu extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTEmprestimos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -49,15 +55,12 @@ public class JFMenu extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(72, 169, 166));
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 252));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTEmprestimos.setBackground(new java.awt.Color(204, 204, 204));
+        JTEmprestimos.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JTEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
+        JTEmprestimos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Ferramenta", "Cliente", "Desde", "Prazo devolução"
@@ -71,11 +74,11 @@ public class JFMenu extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-        jTable1.setShowGrid(false);
-        jScrollPane1.setViewportView(jTable1);
+        JTEmprestimos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JTEmprestimos.setGridColor(new java.awt.Color(51, 51, 51));
+        JTEmprestimos.setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+        JTEmprestimos.setShowGrid(false);
+        jScrollPane1.setViewportView(JTEmprestimos);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
@@ -195,6 +198,18 @@ public class JFMenu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void renderEmprestimosTable() {
+        FerramentaDAO dao = new FerramentaDAO();
+        ArrayList<Ferramenta> ferramentas = dao.getMinhaLista();
+        DefaultTableModel model = (DefaultTableModel) JTEmprestimos.getModel();
+
+        for (Ferramenta f : ferramentas) {
+            if (f.getEmprestimo() != 0) {
+                model.addRow(new Object[]{f.getNome(), f.getEmprestimo(), 999, 999});
+            }
+        }
+    }
+
     private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
         JFGerenciarAmigos objeto = new JFGerenciarAmigos();
         objeto.setLocationRelativeTo(null);
@@ -210,7 +225,7 @@ public class JFMenu extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        
+
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItemGerenciaFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaFerramentaActionPerformed
@@ -255,6 +270,7 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTEmprestimos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -266,6 +282,5 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

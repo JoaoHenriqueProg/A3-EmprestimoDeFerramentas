@@ -4,16 +4,26 @@ public class Ferramenta {
     private String nome;
     private int id;
     private double preco_de_aquisicao;
+    private int emprestimo;
+
+    public int getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(int emprestimo) {
+        this.emprestimo = emprestimo;
+    }
 
     public Ferramenta() {
-        this("", 0, 0);
+        this("", 0, 0, 0);
     }
 
     // commit teste 234
-    public Ferramenta(String nome, int id, double preco_de_aquisicao) {
+    public Ferramenta(String nome, int id, double preco_de_aquisicao, int emprestimo) {
         this.nome = nome;
         this.id = id;
         this.preco_de_aquisicao = preco_de_aquisicao;
+        this.emprestimo = emprestimo;
     }
 
     public String getNome() {
