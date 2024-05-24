@@ -48,8 +48,8 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         JTAmigos = new javax.swing.JTable();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        JTFIdRemover = new javax.swing.JTextField();
+        JBRemover = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -157,17 +157,17 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
 
         jLabel5.setText("Id");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        JTFIdRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                JTFIdRemoverActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(186, 63, 29));
-        jButton2.setText("Remover");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JBRemover.setBackground(new java.awt.Color(186, 63, 29));
+        JBRemover.setText("Remover");
+        JBRemover.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JBRemoverActionPerformed(evt);
             }
         });
 
@@ -188,9 +188,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                     .addComponent(JTFEndereco)
                     .addComponent(JTFNumero)
                     .addComponent(JTFEmail)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(JTFIdRemover, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JBAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(JBRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(16, 16, 16))
@@ -224,9 +224,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTFIdRemover, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
+                        .addComponent(JBRemover)))
                 .addContainerGap(43, Short.MAX_VALUE))
         );
 
@@ -287,13 +287,15 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         renderAmigosTable();
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void JTFIdRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFIdRemoverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_JTFIdRemoverActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void JBRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRemoverActionPerformed
+        AmigoDAO dao = new AmigoDAO();
+        dao.deleteAmigoBD(Integer.parseInt(JTFIdRemover.getText()));
+        renderAmigosTable();
+    }//GEN-LAST:event_JBRemoverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,12 +335,13 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAdicionar;
+    private javax.swing.JButton JBRemover;
     private javax.swing.JTable JTAmigos;
     private javax.swing.JTextField JTFEmail;
     private javax.swing.JTextField JTFEndereco;
+    private javax.swing.JTextField JTFIdRemover;
     private javax.swing.JTextField JTFNome;
     private javax.swing.JTextField JTFNumero;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -348,6 +351,5 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }

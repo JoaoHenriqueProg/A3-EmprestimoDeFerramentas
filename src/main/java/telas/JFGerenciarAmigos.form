@@ -86,9 +86,9 @@
                       <Component id="JTFEndereco" alignment="0" max="32767" attributes="0"/>
                       <Component id="JTFNumero" alignment="0" max="32767" attributes="0"/>
                       <Component id="JTFEmail" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jTextField5" alignment="1" max="32767" attributes="0"/>
+                      <Component id="JTFIdRemover" alignment="1" max="32767" attributes="0"/>
                       <Component id="JBAdicionar" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jButton2" alignment="0" max="32767" attributes="0"/>
+                      <Component id="JBRemover" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="618" max="-2" attributes="0"/>
@@ -125,9 +125,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTextField5" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTFIdRemover" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <Component id="JBRemover" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -288,12 +288,12 @@
             <Property name="text" type="java.lang.String" value="Id"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="JTFIdRemover">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFIdRemoverActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="JBRemover">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="1d" green="3f" red="ba" type="rgb"/>
@@ -301,7 +301,7 @@
             <Property name="text" type="java.lang.String" value="Remover"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBRemoverActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
