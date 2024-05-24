@@ -79,13 +79,11 @@
                       <Component id="jLabel1" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="jLabel2" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="jLabel3" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="0" min="-2" pref="59" max="-2" attributes="0"/>
                       <Component id="jSeparator1" max="32767" attributes="0"/>
                       <Component id="jLabel5" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="JTFNome" alignment="0" pref="132" max="32767" attributes="0"/>
                       <Component id="JTFEndereco" alignment="0" max="32767" attributes="0"/>
                       <Component id="JTFNumero" alignment="0" max="32767" attributes="0"/>
-                      <Component id="JTFEmail" alignment="0" max="32767" attributes="0"/>
                       <Component id="JTFIdRemover" alignment="1" max="32767" attributes="0"/>
                       <Component id="JBAdicionar" alignment="0" max="32767" attributes="0"/>
                       <Component id="JBRemover" alignment="0" max="32767" attributes="0"/>
@@ -115,13 +113,9 @@
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JTFNumero" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="JTFEmail" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="JBAdicionar" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -178,19 +172,6 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFNumeroActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="JTFEmail">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTFEmailActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="0" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Email"/>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JButton" name="JBAdicionar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -243,7 +224,7 @@
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="10" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
@@ -263,7 +244,7 @@
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="-1" minWidth="-1" prefWidth="120" resizable="false">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="10" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>

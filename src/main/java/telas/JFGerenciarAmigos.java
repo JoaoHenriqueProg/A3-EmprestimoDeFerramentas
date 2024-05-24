@@ -41,8 +41,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         JTFEndereco = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         JTFNumero = new javax.swing.JTextField();
-        JTFEmail = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
         JBAdicionar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTAmigos = new javax.swing.JTable();
@@ -97,15 +95,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             }
         });
 
-        JTFEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JTFEmailActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Email");
-
         JBAdicionar.setBackground(new java.awt.Color(73, 159, 104));
         JBAdicionar.setText("Adicionar");
         JBAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -147,13 +136,13 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTAmigos);
         if (JTAmigos.getColumnModel().getColumnCount() > 0) {
             JTAmigos.getColumnModel().getColumn(0).setResizable(false);
-            JTAmigos.getColumnModel().getColumn(0).setPreferredWidth(1);
+            JTAmigos.getColumnModel().getColumn(0).setPreferredWidth(10);
             JTAmigos.getColumnModel().getColumn(1).setResizable(false);
             JTAmigos.getColumnModel().getColumn(2).setResizable(false);
             JTAmigos.getColumnModel().getColumn(3).setResizable(false);
             JTAmigos.getColumnModel().getColumn(3).setPreferredWidth(50);
             JTAmigos.getColumnModel().getColumn(4).setResizable(false);
-            JTAmigos.getColumnModel().getColumn(4).setPreferredWidth(120);
+            JTAmigos.getColumnModel().getColumn(4).setPreferredWidth(10);
         }
 
         jLabel5.setText("Id");
@@ -190,13 +179,11 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator1)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JTFNome, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE)
                     .addComponent(JTFEndereco)
                     .addComponent(JTFNumero)
-                    .addComponent(JTFEmail)
                     .addComponent(JTFIdRemover, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(JBAdicionar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JBRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -223,13 +210,9 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JTFNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JTFEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(JBAdicionar)
-                        .addGap(24, 24, 24)
+                        .addGap(18, 18, 18)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
@@ -283,10 +266,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     private void JTFNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNumeroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNumeroActionPerformed
-
-    private void JTFEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JTFEmailActionPerformed
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
         AmigoDAO dao = new AmigoDAO();
@@ -362,7 +341,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     private javax.swing.JButton JBAplicar;
     private javax.swing.JButton JBRemover;
     private javax.swing.JTable JTAmigos;
-    private javax.swing.JTextField JTFEmail;
     private javax.swing.JTextField JTFEndereco;
     private javax.swing.JTextField JTFIdRemover;
     private javax.swing.JTextField JTFNome;
@@ -370,7 +348,6 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
