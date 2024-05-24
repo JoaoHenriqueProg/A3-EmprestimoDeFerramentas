@@ -118,18 +118,18 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         JTAmigos.setForeground(new java.awt.Color(0, 0, 0));
         JTAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "Usuario inicial", "(48) 91234-5678", "12"},
-                {null, null, null, null}
+                {"123", "Usuario inicial", null, "(48) 91234-5678", "12"},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Número", "Quantidade de ferramenta"
+                "Id", "Nome", "Endereco", "Número", "Quantidade de ferramenta"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true
+                false, true, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -149,9 +149,10 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             JTAmigos.getColumnModel().getColumn(0).setPreferredWidth(1);
             JTAmigos.getColumnModel().getColumn(1).setResizable(false);
             JTAmigos.getColumnModel().getColumn(2).setResizable(false);
-            JTAmigos.getColumnModel().getColumn(2).setPreferredWidth(50);
             JTAmigos.getColumnModel().getColumn(3).setResizable(false);
-            JTAmigos.getColumnModel().getColumn(3).setPreferredWidth(120);
+            JTAmigos.getColumnModel().getColumn(3).setPreferredWidth(50);
+            JTAmigos.getColumnModel().getColumn(4).setResizable(false);
+            JTAmigos.getColumnModel().getColumn(4).setPreferredWidth(120);
         }
 
         jLabel5.setText("Id");
@@ -255,7 +256,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             model.removeRow(0);
         }
         for (Amigo amigue : dao.getMinhaLista()) {
-            model.addRow(new Object[]{amigue.getId(), amigue.getNome(), amigue.getTelefone(), 0});
+            model.addRow(new Object[]{amigue.getId(), amigue.getNome(), amigue.getEndereco(), amigue.getTelefone(), 0});
         }
     }
     

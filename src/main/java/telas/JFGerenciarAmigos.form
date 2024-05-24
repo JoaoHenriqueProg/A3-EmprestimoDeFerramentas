@@ -218,7 +218,7 @@
                   <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="2">
+                  <Table columnCount="5" rowCount="2">
                     <Column editable="false" title="Id" type="java.lang.String">
                       <Data value="123"/>
                       <Data value="null"/>
@@ -227,6 +227,7 @@
                       <Data value="Usuario inicial"/>
                       <Data value="null"/>
                     </Column>
+                    <Column editable="true" title="Endereco" type="java.lang.String"/>
                     <Column editable="true" title="N&#xfa;mero" type="java.lang.String">
                       <Data value="(48) 91234-5678"/>
                       <Data value="null"/>
@@ -240,6 +241,11 @@
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
                     <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="false">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
                       <Title/>
                       <Editor/>
                       <Renderer/>
