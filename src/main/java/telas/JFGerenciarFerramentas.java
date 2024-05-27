@@ -35,7 +35,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTFerramentas = new javax.swing.JTable();
         JBAdicionar = new javax.swing.JButton();
-        JButtonRemover = new javax.swing.JButton();
+        JBRemover = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         JTFNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -87,8 +87,13 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
             }
         });
 
-        JButtonRemover.setBackground(new java.awt.Color(186, 63, 29));
-        JButtonRemover.setText("Remover");
+        JBRemover.setBackground(new java.awt.Color(186, 63, 29));
+        JBRemover.setText("Remover");
+        JBRemover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRemoverActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Nome");
 
@@ -138,7 +143,6 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5)
-                    .addComponent(JButtonRemover, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(JTFRemoverId)
                     .addComponent(jLabel2)
@@ -147,7 +151,8 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(JTFNome)
                     .addComponent(JTFPreco)
-                    .addComponent(JTFQuantidade))
+                    .addComponent(JTFQuantidade)
+                    .addComponent(JBRemover, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
@@ -176,7 +181,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JTFRemoverId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JButtonRemover)
+                        .addComponent(JBRemover)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE))
@@ -275,6 +280,13 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
 
+    private void JBRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRemoverActionPerformed
+        int id = Integer.parseInt(JTFRemoverId.getText());
+        FerramentaDAO dao = new FerramentaDAO();
+        dao.deleteFerramentaBD(id);
+        renderFerramentasTable();
+    }//GEN-LAST:event_JBRemoverActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -312,7 +324,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAdicionar;
-    private javax.swing.JButton JButtonRemover;
+    private javax.swing.JButton JBRemover;
     private javax.swing.JTextField JTFNome;
     private javax.swing.JTextField JTFPreco;
     private javax.swing.JTextField JTFQuantidade;
