@@ -22,7 +22,41 @@
   
 </details>
 
+### Pré-requisitos
+-  `Maven`
+-  `MySQL`
+-  `JDK 21`
+
+### Configurando DataBase
+#### No cmd:
+Vá para a pasta do projeto:
+```
+cd Users\[seu usuario]\Documents\NetBeansProjects\A3-EmprestimoDeFerramentas
+```
+Crie o arquivo "secrets.properties" (este arquivo contém a senha do MySQL):
+```
+echo sql.password=SUASENHAAQUI >> secrets.properties
+```
+
+Vá para a pasta do Workbench:
+```
+cd Program Files\MySQL\MySQL Workbench 8.0 CE
+```
+Na pasta do MySQLWorkbench, execute:
+```
+start MySQLWorkbench.exe
+```
+
+Entre em local instance:
+
+`root`
+
+`localhost:3306`
+
+Em files -> Open SQL Script..
+
+Abra o arquivo: [InitLocalDatabases.sql](https://github.com/JoaoHenriqueProg/A3-EmprestimoDeFerramentas/blob/master/InitLocalDatabases.sql); e execute o script
 
 ## Links 
 - [Figma](https://www.figma.com/design/b7jf8PMz4qv7Ermevyh7bP/Emprestimo-de-Ferramentas?node-id=0-1&t=zij1dm1fnF6MHrjO-0): Protótipo do sistema (layout das telas)
-- [Trello]()
+- [Trello]():
