@@ -4,6 +4,10 @@
  */
 package telas;
 
+import dao.FerramentaDAO;
+import javax.swing.table.DefaultTableModel;
+import modelo.Ferramenta;
+
 /**
  *
  * @author leand
@@ -15,6 +19,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
      */
     public JFGerenciarFerramentas() {
         initComponents();
+        renderFerramentasTable();
     }
 
     /**
@@ -28,7 +33,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTFerramentas = new javax.swing.JTable();
         JButtonAdicionar = new javax.swing.JButton();
         JButtonRemover = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -51,23 +56,28 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 550));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTFerramentas.setBackground(new java.awt.Color(204, 204, 204));
+        JTFerramentas.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JTFerramentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Nome", "Id", "Preço de Aquisição", "Empréstimo"
+                "Id", "Nome", "Preço de Aquisição", "Empréstimo"
             }
-        ));
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable1.setGridColor(new java.awt.Color(51, 51, 51));
-        jTable1.setShowGrid(false);
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        JTFerramentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JTFerramentas.setGridColor(new java.awt.Color(51, 51, 51));
+        JTFerramentas.setShowGrid(false);
+        jScrollPane1.setViewportView(JTFerramentas);
 
         JButtonAdicionar.setBackground(new java.awt.Color(73, 159, 104));
         JButtonAdicionar.setText("Adicionar");
@@ -210,6 +220,18 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void renderFerramentasTable() {
+        FerramentaDAO dao = new FerramentaDAO();
+        DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
+        while (model.getRowCount() != 0) {
+            model.removeRow(0);
+        }
+        for (Ferramenta ferros : dao.getMinhaLista()) {
+            model.addRow(new Object[]{ferros.getId(), ferros.getNome(), ferros.getPreco_de_aquisicao(), ferros.getEmprestimo(), 0});
+
+        }
+    }
+
     private void JButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonAdicionarActionPerformed
         JFAdicionar_ferramenta objeto = new JFAdicionar_ferramenta();
         objeto.setLocationRelativeTo(null);
@@ -274,6 +296,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonAdicionar;
     private javax.swing.JButton JButtonRemover;
+    private javax.swing.JTable JTFerramentas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -286,7 +309,6 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
