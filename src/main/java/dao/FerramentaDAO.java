@@ -108,7 +108,7 @@ public class FerramentaDAO {
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
             stmt.setDouble(3, objeto.getPreco_de_aquisicao());
-            stmt.setInt(1, objeto.getEmprestimo());
+            stmt.setInt(4, objeto.getEmprestimo());
             stmt.execute();
             stmt.close();
             return true;

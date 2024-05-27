@@ -34,16 +34,16 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTFerramentas = new javax.swing.JTable();
-        JButtonAdicionar = new javax.swing.JButton();
+        JBAdicionar = new javax.swing.JButton();
         JButtonRemover = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        JTFNome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        JTFPreco = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        JTFQuantidade = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        JTFRemoverId = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -79,11 +79,11 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         JTFerramentas.setShowGrid(false);
         jScrollPane1.setViewportView(JTFerramentas);
 
-        JButtonAdicionar.setBackground(new java.awt.Color(73, 159, 104));
-        JButtonAdicionar.setText("Adicionar");
-        JButtonAdicionar.addActionListener(new java.awt.event.ActionListener() {
+        JBAdicionar.setBackground(new java.awt.Color(73, 159, 104));
+        JBAdicionar.setText("Adicionar");
+        JBAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButtonAdicionarActionPerformed(evt);
+                JBAdicionarActionPerformed(evt);
             }
         });
 
@@ -92,27 +92,33 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
 
         jLabel1.setText("Nome");
 
+        JTFNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTFNomeActionPerformed(evt);
+            }
+        });
+
         jLabel2.setText("Preço de Aquisição");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        JTFPreco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                JTFPrecoActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Quantidade");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        JTFQuantidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                JTFQuantidadeActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Id");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        JTFRemoverId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                JTFRemoverIdActionPerformed(evt);
             }
         });
 
@@ -134,14 +140,14 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(JButtonRemover, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField5)
+                    .addComponent(JTFRemoverId)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(JButtonAdicionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JBAdicionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1)
-                    .addComponent(jTextField2)
-                    .addComponent(jTextField3))
+                    .addComponent(JTFNome)
+                    .addComponent(JTFPreco)
+                    .addComponent(JTFQuantidade))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
                 .addGap(30, 30, 30))
@@ -154,21 +160,21 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTFPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTFQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(JButtonAdicionar)
+                        .addComponent(JBAdicionar)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JTFRemoverId, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(JButtonRemover)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -232,31 +238,42 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         }
     }
 
-    private void JButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonAdicionarActionPerformed
-        JFAdicionar_ferramenta objeto = new JFAdicionar_ferramenta();
-        objeto.setLocationRelativeTo(null);
-        objeto.setVisible(true);
-    }//GEN-LAST:event_JButtonAdicionarActionPerformed
+    private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
+        FerramentaDAO dao = new FerramentaDAO();
+        String nome = JTFNome.getText();
+        int quant = Integer.parseInt(JTFQuantidade.getText());
+        double preco = Double.parseDouble(JTFPreco.getText());
+        
+        for (int i = 0; i < quant; i++) {
+            dao.insertFerramentaBD(new Ferramenta(nome, dao.maiorID() + 1, preco, 0));
+        }
+        
+        renderFerramentasTable();
+    }//GEN-LAST:event_JBAdicionarActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void JTFPrecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFPrecoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_JTFPrecoActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void JTFQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFQuantidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_JTFQuantidadeActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void JTFRemoverIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFRemoverIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_JTFRemoverIdActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTFNomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -294,8 +311,12 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JButtonAdicionar;
+    private javax.swing.JButton JBAdicionar;
     private javax.swing.JButton JButtonRemover;
+    private javax.swing.JTextField JTFNome;
+    private javax.swing.JTextField JTFPreco;
+    private javax.swing.JTextField JTFQuantidade;
+    private javax.swing.JTextField JTFRemoverId;
     private javax.swing.JTable JTFerramentas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -309,9 +330,5 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
     // End of variables declaration//GEN-END:variables
 }
