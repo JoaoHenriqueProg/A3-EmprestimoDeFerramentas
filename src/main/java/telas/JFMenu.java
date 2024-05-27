@@ -57,7 +57,6 @@ public class JFMenu extends javax.swing.JFrame {
 
         JTEmprestimos.setBackground(new java.awt.Color(204, 204, 204));
         JTEmprestimos.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        JTEmprestimos.setForeground(new java.awt.Color(0, 0, 0));
         JTEmprestimos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -82,7 +81,6 @@ public class JFMenu extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Alugueis pendentes:");
 
         jButton1.setBackground(new java.awt.Color(73, 159, 104));
@@ -178,6 +176,7 @@ public class JFMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(255, 255, 252));
         jMenu2.setText("Configurações");
         jMenuBar1.add(jMenu2);
 
