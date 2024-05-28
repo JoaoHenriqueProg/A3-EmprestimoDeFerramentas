@@ -35,7 +35,7 @@ cd Users\[seu usuario]\Documents\NetBeansProjects\A3-EmprestimoDeFerramentas
 ```
 Crie o arquivo "secrets.properties" (este arquivo contém a senha do MySQL):
 ```
-echo sql.password=SUASENHAAQUI >> secrets.properties
+echo sql.password=[SUASENHAAQUI] >> secrets.properties
 ```
 
 Vá para a pasta do Workbench:
@@ -53,9 +53,10 @@ Entre em local instance:
 
 `localhost:3306`
 
-Em files -> Open SQL Script..
+<div> Em files -> Open SQL Script..</div>
+<img aling="left" height="100" src="https://github.com/JoaoHenriqueProg/A3-EmprestimoDeFerramentas/assets/102531267/424efb84-e4a6-4da8-afe8-3eb23a5b4a4b"/>
 
-Abra o arquivo: [InitLocalDatabases.sql](https://github.com/JoaoHenriqueProg/A3-EmprestimoDeFerramentas/blob/master/InitLocalDatabases.sql); e execute o script
+Abra o arquivo: [InitLocalDatabases.sql](https://github.com/JoaoHenriqueProg/A3-EmprestimoDeFerramentas/blob/master/InitLocalDatabases.sql); e execute [⚡] o script
 
 ## Links 
 - [Figma](https://www.figma.com/design/b7jf8PMz4qv7Ermevyh7bP/Emprestimo-de-Ferramentas?node-id=0-1&t=zij1dm1fnF6MHrjO-0): Protótipo do sistema (layout das telas)
