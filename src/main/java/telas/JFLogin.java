@@ -4,6 +4,8 @@
  */
 package telas;
 
+import static java.awt.event.KeyEvent.VK_ENTER;
+
 /**
  *
  * @author busin
@@ -52,6 +54,11 @@ public class JFLogin extends javax.swing.JFrame {
         jPasswordFieldSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordFieldSenhaActionPerformed(evt);
+            }
+        });
+        jPasswordFieldSenha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPasswordFieldSenhaKeyPressed(evt);
             }
         });
 
@@ -121,6 +128,13 @@ public class JFLogin extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
+        if (evt.getKeyCode() == VK_ENTER) {
+            System.out.println("comcoco");
+            jButton1ActionPerformed(null);
+        }
+    }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed
 
     /**
      * @param args the command line arguments
