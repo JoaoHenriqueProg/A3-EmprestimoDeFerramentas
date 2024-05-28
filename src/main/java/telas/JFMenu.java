@@ -43,6 +43,7 @@ public class JFMenu extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
+        MIRelatorio = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -174,6 +175,14 @@ public class JFMenu extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItemGerenciaFerramenta);
 
+        MIRelatorio.setText("Relatórios");
+        MIRelatorio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MIRelatorioActionPerformed(evt);
+            }
+        });
+        jMenu1.add(MIRelatorio);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setForeground(new java.awt.Color(255, 255, 252));
@@ -233,6 +242,12 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciaFerramentaActionPerformed
 
+    private void MIRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRelatorioActionPerformed
+        JFRelatorios objeto = new JFRelatorios();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_MIRelatorioActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -270,6 +285,7 @@ public class JFMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable JTEmprestimos;
+    private javax.swing.JMenuItem MIRelatorio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
