@@ -1,18 +1,18 @@
 package modelo;
+import java.util.Date;
 
 public class Emprestimo {
     private int id;
     private int amigo;
     private int ferramenta;
+    private Date dataEmprestimo;
 
-    public Emprestimo(){
-        this(0,0,0);
-    }
     
-    public Emprestimo(int id, int amigo, int ferramenta) {
+    public Emprestimo(int id, int amigo, int ferramenta, Date dataEmprestimo) {
         this.id = id;
         this.amigo = amigo;
         this.ferramenta = ferramenta;
+        this.dataEmprestimo = dataEmprestimo;
     }
         
     public int getId() {
@@ -37,6 +37,14 @@ public class Emprestimo {
 
     public void setFerramenta(int ferramenta) {
         this.ferramenta = ferramenta;
+    }
+    
+    public Date getDataEmprestimo() {
+        return dataEmprestimo;
+    }
+
+    public void setDataEmprestimo(Date dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
 
