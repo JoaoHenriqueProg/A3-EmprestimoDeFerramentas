@@ -63,7 +63,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Nome", "Preço de Aquisição", "Empréstimo"
+                "Id", "Nome", "Preço de Aquisição", "Quantidade"
             }
         ) {
             Class[] types = new Class [] {
@@ -238,8 +238,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
             model.removeRow(0);
         }
         for (Ferramenta ferros : dao.getMinhaLista()) {
-            model.addRow(new Object[]{ferros.getId(), ferros.getNome(), ferros.getPreco_de_aquisicao(), ferros.getEmprestimo(), 0});
-
+            model.addRow(new Object[]{ferros.getId(), ferros.getNome(), ferros.getPreco_de_aquisicao(), ferros.getQuantidade()});
         }
     }
 
@@ -248,10 +247,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         String nome = JTFNome.getText();
         int quant = Integer.parseInt(JTFQuantidade.getText());
         double preco = Double.parseDouble(JTFPreco.getText());
-        
-        for (int i = 0; i < quant; i++) {
-            dao.insertFerramentaBD(new Ferramenta(nome, dao.maiorID() + 1, preco, 0));
-        }
+        dao.insertFerramentaBD(new Ferramenta(nome, dao.maiorID() + 1, preco, quant));
         
         renderFerramentasTable();
     }//GEN-LAST:event_JBAdicionarActionPerformed

@@ -211,11 +211,11 @@ public class JFMenu extends javax.swing.JFrame {
         ArrayList<Ferramenta> ferramentas = dao.getMinhaLista();
         DefaultTableModel model = (DefaultTableModel) JTEmprestimos.getModel();
 
-        for (Ferramenta f : ferramentas) {
-            if (f.getEmprestimo() != 0) {
-                model.addRow(new Object[]{f.getNome(), f.getEmprestimo(), 999, 999});
-            }
-        }
+//        for (Ferramenta f : ferramentas) {
+//            if (f.getEmprestimo() != 0) {
+//                model.addRow(new Object[]{f.getNome(), f.getEmprestimo(), 999, 999});
+//            }
+//        }
     }
 
     private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed

@@ -131,7 +131,6 @@ public class JFLogin extends javax.swing.JFrame {
 
     private void jPasswordFieldSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldSenhaKeyPressed
         if (evt.getKeyCode() == VK_ENTER) {
-            System.out.println("comcoco");
             jButton1ActionPerformed(null);
         }
     }//GEN-LAST:event_jPasswordFieldSenhaKeyPressed

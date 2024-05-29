@@ -8,7 +8,7 @@ CREATE TABLE TBFerramentas (
 	id INTEGER NOT NULL,
 	nome VARCHAR(100),
 	preco DOUBLE,
-    emprestimo INTEGER NOT NULL,
+    quantidade INTEGER,
 	PRIMARY KEY(id)
 );
 
@@ -21,5 +21,28 @@ CREATE TABLE TBAmigos(
 	nome VARCHAR(100),
 	endereco VARCHAR(100),
 	numero VARCHAR(11),
+	PRIMARY KEY(id)
+);
+
+# Cria a tabela de histórico
+CREATE DATABASE IF NOT EXISTS TBRegistros;
+USE TBRegistros;
+DROP TABLE IF EXISTS TBRegistros;
+CREATE TABLE TBRegistros(
+	id INTEGER NOT NULL,
+	tipo INT,
+    amigo INT,
+    ferramenta INT,
+	PRIMARY KEY(id)
+);
+
+# Cria a tabela de empréstimos
+CREATE DATABASE IF NOT EXISTS TBEmprestimo;
+USE TBEmprestimo;
+DROP TABLE IF EXISTS TBEmprestimo;
+CREATE TABLE TBEmprestimo(
+	id INTEGER NOT NULL,
+    amigo INT,
+    ferramenta INT,
 	PRIMARY KEY(id)
 );

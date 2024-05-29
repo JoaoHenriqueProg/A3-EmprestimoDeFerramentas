@@ -161,7 +161,7 @@ public class JFAdicionar_ferramenta extends javax.swing.JFrame {
         double preco = Double.parseDouble(JTFPreco.getText());
         
         for (int i = 0; i < quant; i++) {
-            dao.insertFerramentaBD(new Ferramenta(nome, dao.maiorID() + 1, preco, 0));
+            // dao.insertFerramentaBD(new Ferramenta(nome, dao.maiorID() + 1, preco, 0));
         }
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
