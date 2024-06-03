@@ -1,7 +1,8 @@
 package telas;
 
+import dao.AmigoDAO;
 import dao.FerramentaDAO;
-import javax.swing.table.DefaultTableModel;
+import modelo.Amigo;
 import modelo.Ferramenta;
 
 
@@ -10,13 +11,30 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     
     public JFCriarAluguel() {
         initComponents();
+        
         renderFerramentasList();
+        setAmigosList();
+        setFerramentaList();
     }
 
     
     
     @SuppressWarnings("unchecked")
     
+    private void setAmigosList() {
+        AmigoDAO dao = new AmigoDAO();
+        JCBAmigos.removeAllItems();
+        for (Amigo amigue : dao.getMinhaLista()) {
+            JCBAmigos.addItem(amigue.getId() + " - " + amigue.getNome());
+        }
+    }
+    private void setFerramentaList() {
+        FerramentaDAO dao = new FerramentaDAO();
+        JCBFerramentas.removeAllItems();
+        for (Ferramenta ferros : dao.getMinhaLista()) {
+            JCBFerramentas.addItem(ferros.getId() + " - " + ferros.getNome());
+        }
+    }
     private void renderFerramentasList() {
         FerramentaDAO dao = new FerramentaDAO();
 //         DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
@@ -41,11 +59,13 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         JTFNumeroLocador = new javax.swing.JTextField();
         JBGerarAluguel = new javax.swing.JButton();
         JBLimpar = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        JCBAmigos = new javax.swing.JComboBox<>();
         JLIdLocador1 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         JTFerramentas = new javax.swing.JTable();
+        JCBFerramentas = new javax.swing.JComboBox<>();
+        JLInicioAluguel1 = new javax.swing.JLabel();
 
         jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
@@ -109,7 +129,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBAmigos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         JLIdLocador1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         JLIdLocador1.setForeground(new java.awt.Color(240, 240, 240));
@@ -154,6 +174,12 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             JTFerramentas.getColumnModel().getColumn(1).setResizable(false);
         }
 
+        JCBFerramentas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        JLInicioAluguel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        JLInicioAluguel1.setForeground(new java.awt.Color(240, 240, 240));
+        JLInicioAluguel1.setText("Ferramenta");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -168,16 +194,23 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JBLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(JLIdLocador)
-                                        .addComponent(JLInicioAluguel)
-                                        .addComponent(JLIdLocador1)
-                                        .addComponent(JTFNumeroLocador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(60, 60, 60)
+                                    .addComponent(JCBAmigos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(JBLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(JLIdLocador)
+                                                .addComponent(JLInicioAluguel)
+                                                .addComponent(JLIdLocador1)
+                                                .addComponent(JTFNumeroLocador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(60, 60, 60))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JCBFerramentas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JLInicioAluguel1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLFerramenta)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -191,19 +224,25 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                     .addComponent(JLFerramenta)
                     .addComponent(JLInicioAluguel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(JCBAmigos, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLInicioAluguel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JCBFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JLIdLocador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JTFNumeroLocador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JLIdLocador1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
+                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBGerarAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -280,13 +319,15 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBGerarAluguel;
     private javax.swing.JButton JBLimpar;
+    private javax.swing.JComboBox<String> JCBAmigos;
+    private javax.swing.JComboBox<String> JCBFerramentas;
     private javax.swing.JLabel JLFerramenta;
     private javax.swing.JLabel JLIdLocador;
     private javax.swing.JLabel JLIdLocador1;
     private javax.swing.JLabel JLInicioAluguel;
+    private javax.swing.JLabel JLInicioAluguel1;
     private javax.swing.JTextField JTFNumeroLocador;
     private javax.swing.JTable JTFerramentas;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
