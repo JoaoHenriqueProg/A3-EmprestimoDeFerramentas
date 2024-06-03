@@ -93,6 +93,7 @@ public class FerramentaDAO {
             objeto.setNome(res.getString("nome"));
             objeto.setId(res.getInt("id"));
             objeto.setPreco_de_aquisicao(res.getDouble("preco"));
+            objeto.setQuantidade(res.getInt("quantidade"));
             stmt.close();
         } catch (SQLException erro) {
             System.out.println("Erro:" + erro);

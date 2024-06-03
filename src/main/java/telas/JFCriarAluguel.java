@@ -5,22 +5,18 @@ import dao.FerramentaDAO;
 import modelo.Amigo;
 import modelo.Ferramenta;
 
-
 public class JFCriarAluguel extends javax.swing.JFrame {
 
-    
     public JFCriarAluguel() {
         initComponents();
-        
+
         renderFerramentasList();
         setAmigosList();
         setFerramentaList();
     }
 
-    
-    
     @SuppressWarnings("unchecked")
-    
+
     private void setAmigosList() {
         AmigoDAO dao = new AmigoDAO();
         JCBAmigos.removeAllItems();
@@ -28,6 +24,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             JCBAmigos.addItem(amigue.getId() + " - " + amigue.getNome());
         }
     }
+
     private void setFerramentaList() {
         FerramentaDAO dao = new FerramentaDAO();
         JCBFerramentas.removeAllItems();
@@ -35,6 +32,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             JCBFerramentas.addItem(ferros.getId() + " - " + ferros.getNome());
         }
     }
+
     private void renderFerramentasList() {
         FerramentaDAO dao = new FerramentaDAO();
 //         DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
@@ -45,7 +43,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 //            model.addRow(new Object[]{ferros.getNome(), ferros.getQuantidade()});
 //        }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -54,7 +52,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         JLFerramenta = new javax.swing.JLabel();
-        JLIdLocador = new javax.swing.JLabel();
+        JLQuantidade = new javax.swing.JLabel();
         JLInicioAluguel = new javax.swing.JLabel();
         JTFNumeroLocador = new javax.swing.JTextField();
         JBGerarAluguel = new javax.swing.JButton();
@@ -66,6 +64,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         JTFerramentas = new javax.swing.JTable();
         JCBFerramentas = new javax.swing.JComboBox<>();
         JLInicioAluguel1 = new javax.swing.JLabel();
+        JLIdLocador3 = new javax.swing.JLabel();
 
         jLabel4.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
@@ -93,9 +92,9 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         JLFerramenta.setForeground(new java.awt.Color(240, 240, 240));
         JLFerramenta.setText("Ferramenta");
 
-        JLIdLocador.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        JLIdLocador.setForeground(new java.awt.Color(240, 240, 240));
-        JLIdLocador.setText("Numero:");
+        JLQuantidade.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        JLQuantidade.setForeground(new java.awt.Color(240, 240, 240));
+        JLQuantidade.setText("Quantidade: ???");
 
         JLInicioAluguel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         JLInicioAluguel.setForeground(new java.awt.Color(240, 240, 240));
@@ -175,10 +174,24 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         }
 
         JCBFerramentas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBFerramentas.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JCBFerramentasItemStateChanged(evt);
+            }
+        });
+        JCBFerramentas.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                JCBFerramentasPropertyChange(evt);
+            }
+        });
 
         JLInicioAluguel1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         JLInicioAluguel1.setForeground(new java.awt.Color(240, 240, 240));
         JLInicioAluguel1.setText("Ferramenta");
+
+        JLIdLocador3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        JLIdLocador3.setForeground(new java.awt.Color(240, 240, 240));
+        JLIdLocador3.setText("Quantidade");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -199,7 +212,6 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(JBLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(JLIdLocador)
                                                 .addComponent(JLInicioAluguel)
                                                 .addComponent(JLIdLocador1)
                                                 .addComponent(JTFNumeroLocador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,7 +222,12 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(JCBFerramentas, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JLInicioAluguel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JLQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(JLIdLocador3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLFerramenta)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -234,15 +251,17 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                         .addComponent(JLInicioAluguel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JCBFerramentas, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JLIdLocador)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLIdLocador3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(JTFNumeroLocador, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JLQuantidade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(JLIdLocador1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JBLimpar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JBGerarAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -280,6 +299,19 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jFormattedTextField1ActionPerformed
+
+    private void JCBFerramentasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JCBFerramentasPropertyChange
+        // TODO: achar um jeito de remover essa função
+    }//GEN-LAST:event_JCBFerramentasPropertyChange
+
+    private void JCBFerramentasItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCBFerramentasItemStateChanged
+        int novoI = JCBFerramentas.getSelectedIndex();
+        if (novoI != -1) {
+            FerramentaDAO dao = new FerramentaDAO();
+            int novoId = Integer.parseInt(JCBFerramentas.getItemAt(novoI).split(" ")[0]);
+            JLQuantidade.setText("Disponível: " + dao.carregaFerramenta(novoId).getQuantidade());
+        }
+    }//GEN-LAST:event_JCBFerramentasItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -322,10 +354,11 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBAmigos;
     private javax.swing.JComboBox<String> JCBFerramentas;
     private javax.swing.JLabel JLFerramenta;
-    private javax.swing.JLabel JLIdLocador;
     private javax.swing.JLabel JLIdLocador1;
+    private javax.swing.JLabel JLIdLocador3;
     private javax.swing.JLabel JLInicioAluguel;
     private javax.swing.JLabel JLInicioAluguel1;
+    private javax.swing.JLabel JLQuantidade;
     private javax.swing.JTextField JTFNumeroLocador;
     private javax.swing.JTable JTFerramentas;
     private javax.swing.JFormattedTextField jFormattedTextField1;

@@ -97,7 +97,6 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="JBLimpar" alignment="0" min="-2" pref="110" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="JLIdLocador" min="-2" max="-2" attributes="0"/>
                                                   <Component id="JLInicioAluguel" min="-2" max="-2" attributes="0"/>
                                                   <Component id="JLIdLocador1" min="-2" max="-2" attributes="0"/>
                                                   <Component id="JTFNumeroLocador" alignment="0" max="32767" attributes="0"/>
@@ -115,6 +114,13 @@
                                       <Component id="JLInicioAluguel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="JLQuantidade" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="JLIdLocador3" min="-2" pref="180" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
@@ -147,15 +153,17 @@
                           <Component id="JLInicioAluguel1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JCBFerramentas" min="-2" pref="26" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="JLIdLocador" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="JLIdLocador3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="JTFNumeroLocador" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
+                          <Component id="JLQuantidade" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="JLIdLocador1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jFormattedTextField1" min="-2" pref="22" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -179,15 +187,15 @@
             <Property name="text" type="java.lang.String" value="Ferramenta"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="JLIdLocador">
+        <Component class="javax.swing.JLabel" name="JLQuantidade">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Comic Sans MS" size="14" style="1"/>
+              <Font name="Comic Sans MS" size="12" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Numero:"/>
+            <Property name="text" type="java.lang.String" value="Quantidade: ???"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="JLInicioAluguel">
@@ -329,6 +337,10 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="JCBFerramentasItemStateChanged"/>
+            <EventHandler event="propertyChange" listener="java.beans.PropertyChangeListener" parameters="java.beans.PropertyChangeEvent" handler="JCBFerramentasPropertyChange"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -342,6 +354,17 @@
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ferramenta"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="JLIdLocador3">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Comic Sans MS" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="f0" green="f0" red="f0" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Quantidade"/>
           </Properties>
         </Component>
       </SubComponents>
