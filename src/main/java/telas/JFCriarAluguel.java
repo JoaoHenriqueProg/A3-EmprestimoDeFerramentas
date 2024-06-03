@@ -19,13 +19,13 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     
     private void renderFerramentasList() {
         FerramentaDAO dao = new FerramentaDAO();
-        DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
-        while (model.getRowCount() != 0) {
-            model.removeRow(0);
-        }
-        for (Ferramenta ferros : dao.getMinhaLista()) {
-            model.addRow(new Object[]{ferros.getNome(), ferros.getQuantidade()});
-        }
+//         DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
+//        while (model.getRowCount() != 0) {
+//            model.removeRow(0);
+//        }
+//        for (Ferramenta ferros : dao.getMinhaLista()) {
+//            model.addRow(new Object[]{ferros.getNome(), ferros.getQuantidade()});
+//        }
     }
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -124,24 +124,35 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
         JTFerramentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "", "Nome", "Quantidade"
+                "Nome", "Quantidade"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, true
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
         jScrollPane3.setViewportView(JTFerramentas);
+        if (JTFerramentas.getColumnModel().getColumnCount() > 0) {
+            JTFerramentas.getColumnModel().getColumn(0).setResizable(false);
+            JTFerramentas.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
