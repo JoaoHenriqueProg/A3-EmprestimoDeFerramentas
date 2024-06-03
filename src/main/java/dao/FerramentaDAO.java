@@ -132,12 +132,13 @@ public class FerramentaDAO {
 
     // Edita um Ferramenta específico pelo seu campo ID
     public boolean updateFerramentaBD(Ferramenta objeto) {
-        String sql = "UPDATE TBFerramentas set nome = ? ,preco = ? WHERE id = ?";
+        String sql = "UPDATE TBFerramentas set nome = ? ,preco = ?, quantidade = ? WHERE id = ?";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setString(1, objeto.getNome());
             stmt.setDouble(2, objeto.getPreco_de_aquisicao());
-            stmt.setInt(5, objeto.getId());
+            stmt.setInt(3, objeto.getQuantidade());
+            stmt.setInt(4, objeto.getId());
             stmt.execute();
             stmt.close();
             return true;
