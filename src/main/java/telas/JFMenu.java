@@ -4,9 +4,11 @@
  */
 package telas;
 
+import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
 /**
@@ -63,12 +65,19 @@ public class JFMenu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ferramenta", "Cliente", "Desde", "Prazo devolução"
+                "Ferramenta", "Cliente", "Quantidade", "Desde", "Prazo devolução"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -207,15 +216,15 @@ public class JFMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void renderEmprestimosTable() {
-        FerramentaDAO dao = new FerramentaDAO();
-        ArrayList<Ferramenta> ferramentas = dao.getMinhaLista();
+        EmprestimoDAO dao = new EmprestimoDAO();
+        ArrayList<Emprestimo> ferramentas = dao.getMinhaLista();
         DefaultTableModel model = (DefaultTableModel) JTEmprestimos.getModel();
 
-//        for (Ferramenta f : ferramentas) {
-//            if (f.getEmprestimo() != 0) {
-//                model.addRow(new Object[]{f.getNome(), f.getEmprestimo(), 999, 999});
-//            }
-//        }
+        for (Emprestimo emp : ferramentas) {
+            if (emp.getQuantidade() != 0) {
+                model.addRow(new Object[]{emp.getFerramenta(), emp.getAmigo(), emp.getQuantidade(), 999, 999});
+            }
+        }
     }
 
     private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
