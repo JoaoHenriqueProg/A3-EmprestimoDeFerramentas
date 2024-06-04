@@ -50,25 +50,25 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     }
 
     private void addNaTabela() {
-        int idPraAdicionar = Integer.parseInt(((String)JCBFerramentas.getSelectedItem()).split(" ")[0]);
+        int idPraAdicionar = Integer.parseInt(((String) JCBFerramentas.getSelectedItem()).split(" ")[0]);
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
             // nome da ferramenta -> split com " " -> primeiro da lista pra int é o id
             System.out.println(idAtual + " " + idPraAdicionar);
             if (idAtual == idPraAdicionar) {
                 // return (int) JTFerramentas.getValueAt(i, 1);
-                JTFerramentas.setValueAt((int)JTFerramentas.getValueAt(i, 1) + (int) JSQuantidade.getValue(), i, 1);
+                JTFerramentas.setValueAt((int) JTFerramentas.getValueAt(i, 1) + (int) JSQuantidade.getValue(), i, 1);
                 return;
             }
         }
-        
+
         // SÓ VAI CHEGAR AQUI SE JÁ NÃO ESTIVER NA TABELA
-        ((DefaultTableModel)JTFerramentas.getModel()).addRow(new Object[] {
-            (String)JCBFerramentas.getSelectedItem(),
+        ((DefaultTableModel) JTFerramentas.getModel()).addRow(new Object[]{
+            (String) JCBFerramentas.getSelectedItem(),
             (int) JSQuantidade.getValue()
         });
     }
-    
+
     private int getQuantidadeNaTabela(int id) {
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
@@ -201,6 +201,11 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
+            }
+        });
+        JTFerramentas.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                JTFerramentasPropertyChange(evt);
             }
         });
         jScrollPane3.setViewportView(JTFerramentas);
@@ -384,6 +389,21 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     private void JSQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_JSQuantidadeStateChanged
         JSQuantidade.setValue(Integer.min(getQuantidadeDisponivel(getFerramentaSelecionada()), (int) JSQuantidade.getValue()));
     }//GEN-LAST:event_JSQuantidadeStateChanged
+
+    private void JTFerramentasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JTFerramentasPropertyChange
+        // ao modificar a tabela diretamente, temos que sertificar que o usuario nao tenha colocoado
+        // mais ferramentas que ele tem disponivel para emprestar, ao inves disso só diminuindo para
+        // o maximo possivel
+        for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
+            int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
+            if (getQuantidadeDisponivel(idAtual) < 0) {
+                JTFerramentas.setValueAt((int)JTFerramentas.getValueAt(i, 1) + getQuantidadeDisponivel(idAtual), i, 1);
+                // não, não é magia negra
+                // o geQuantidade vai acabar retornando a quantidade acima do disponivel por matematicas
+            }
+        }
+        setFerramentaList();
+    }//GEN-LAST:event_JTFerramentasPropertyChange
 
     /**
      * @param args the command line arguments
