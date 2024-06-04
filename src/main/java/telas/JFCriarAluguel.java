@@ -400,14 +400,20 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_JCBFerramentasItemStateChanged
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
-        int praAdicionar = (int) JSQuantidade.getValue();
-        // TODO: se não tiver ferramenta selecionada
+        if (JCBFerramentas.getSelectedItem() == null) {
+            return;
+        }
+        
         addNaTabela();
         setFerramentaList();
         JSQuantidade.setValue(0);
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
     private void JBSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSubtrairActionPerformed
+        if (JCBFerramentas.getSelectedItem() == null) {
+            return;
+        }
+        
         subNaTabela();
         setFerramentaList();
         JSQuantidade.setValue(0);
