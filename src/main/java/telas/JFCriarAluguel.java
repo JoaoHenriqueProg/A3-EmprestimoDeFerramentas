@@ -4,6 +4,7 @@ import dao.AmigoDAO;
 import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Emprestimo;
@@ -404,11 +405,11 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
     private void JBGerarAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGerarAluguelActionPerformed
         if (JTFerramentas.getRowCount() == 0) {
-            // TODO: jOptionPanel aqui
+            JOptionPane.showMessageDialog(null,"A tabela de aluguéis está vazia");
             return;
         }
         if (JCBAmigos.getSelectedItem() == null) {
-            // TODO: jOptionPanel aqui tambem
+            JOptionPane.showMessageDialog(null,"Não há nenhum amigo selecionado");
             return;
         }
         
@@ -438,8 +439,8 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_JCBFerramentasItemStateChanged
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
-        // TODO: jOptionPanes pra erros
         if (JCBFerramentas.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null,"Nenhuma ferramenta selecionada");
             return;
         }
         if ((int) JSQuantidade.getValue() == 0) {
