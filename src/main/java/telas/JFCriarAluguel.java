@@ -115,7 +115,21 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         // TODO: terminar função
         if (id != -1) {
             FerramentaDAO dao = new FerramentaDAO();
-            int total = dao.carregaFerramenta(id).getQuantidade() - getQuantidadeNaTabela(id);
+            int total = dao.carregaFerramenta(id).getQuantidade() - getQuantidadeAlugada(id) - getQuantidadeNaTabela(id);
+            return total;
+        }
+        return 0;
+    }
+    
+    private int getQuantidadeAlugada(int id) {
+        if (id != -1) {
+            EmprestimoDAO dao = new EmprestimoDAO();
+            int total = 0;
+            for (Emprestimo emp : dao.getMinhaLista()) {
+                if (emp.getFerramenta() == id) {
+                    total += emp.getQuantidade();
+                }
+            }
             return total;
         }
         return 0;
@@ -449,6 +463,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
     private void JSQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_JSQuantidadeStateChanged
         JSQuantidade.setValue(Integer.min(getQuantidadeDisponivel(getFerramentaSelecionada()), (int) JSQuantidade.getValue()));
+        JSQuantidade.setValue(Integer.max(0, (int) JSQuantidade.getValue()));
     }//GEN-LAST:event_JSQuantidadeStateChanged
 
     private void JTFerramentasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JTFerramentasPropertyChange
