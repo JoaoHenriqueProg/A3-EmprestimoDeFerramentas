@@ -10,6 +10,10 @@ public class Emprestimo {
     private int quantidade;
     private Date dataEmprestimo;
 
+    public Emprestimo() {
+        this(0, 0, 0, 0, new Date());
+    }
+    
     public Emprestimo(int id, int amigo, int ferramenta, int quantidade, Date dataEmprestimo) {
         this.id = id;
         this.amigo = amigo;
