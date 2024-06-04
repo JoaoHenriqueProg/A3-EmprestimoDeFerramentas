@@ -44,5 +44,7 @@ CREATE TABLE TBEmprestimo(
 	id INTEGER NOT NULL,
     amigo INT,
     ferramenta INT,
+    quantidade INT,
+    # TODO: data do empréstimo
 	PRIMARY KEY(id)
 );
