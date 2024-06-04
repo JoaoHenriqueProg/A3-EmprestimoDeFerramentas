@@ -67,6 +67,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             (int) JSQuantidade.getValue()
         });
     }
+
     private void subNaTabela() {
         int idPraAdicionar = Integer.parseInt(((String) JCBFerramentas.getSelectedItem()).split(" ")[0]);
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
@@ -82,13 +83,14 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             }
         }
     }
+
     private void removeDaTabela(int id) {
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
             // nome da ferramenta -> split com " " -> primeiro da lista pra int é o id
             if (idAtual == id) {
                 // return (int) JTFerramentas.getValueAt(i, 1);
-                ((DefaultTableModel)JTFerramentas.getModel()).removeRow(i);
+                ((DefaultTableModel) JTFerramentas.getModel()).removeRow(i);
                 return;
             }
         }
@@ -400,10 +402,14 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_JCBFerramentasItemStateChanged
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
+        // TODO: jOptionPanes pra erros
         if (JCBFerramentas.getSelectedItem() == null) {
             return;
         }
-        
+        if ((int) JSQuantidade.getValue() == 0) {
+            return;
+        }
+
         addNaTabela();
         setFerramentaList();
         JSQuantidade.setValue(0);
@@ -413,7 +419,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         if (JCBFerramentas.getSelectedItem() == null) {
             return;
         }
-        
+
         subNaTabela();
         setFerramentaList();
         JSQuantidade.setValue(0);
@@ -430,7 +436,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
             if (getQuantidadeDisponivel(idAtual) < 0) {
-                JTFerramentas.setValueAt((int)JTFerramentas.getValueAt(i, 1) + getQuantidadeDisponivel(idAtual), i, 1);
+                JTFerramentas.setValueAt((int) JTFerramentas.getValueAt(i, 1) + getQuantidadeDisponivel(idAtual), i, 1);
                 // não, não é magia negra
                 // o geQuantidade vai acabar retornando a quantidade acima do disponivel por matematicas
             }
