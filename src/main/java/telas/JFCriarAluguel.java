@@ -54,7 +54,6 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
             // nome da ferramenta -> split com " " -> primeiro da lista pra int é o id
-            System.out.println(idAtual + " " + idPraAdicionar);
             if (idAtual == idPraAdicionar) {
                 // return (int) JTFerramentas.getValueAt(i, 1);
                 JTFerramentas.setValueAt((int) JTFerramentas.getValueAt(i, 1) + (int) JSQuantidade.getValue(), i, 1);
@@ -67,6 +66,32 @@ public class JFCriarAluguel extends javax.swing.JFrame {
             (String) JCBFerramentas.getSelectedItem(),
             (int) JSQuantidade.getValue()
         });
+    }
+    private void subNaTabela() {
+        int idPraAdicionar = Integer.parseInt(((String) JCBFerramentas.getSelectedItem()).split(" ")[0]);
+        for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
+            int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
+            // nome da ferramenta -> split com " " -> primeiro da lista pra int é o id
+            if (idAtual == idPraAdicionar) {
+                // return (int) JTFerramentas.getValueAt(i, 1);
+                JTFerramentas.setValueAt((int) JTFerramentas.getValueAt(i, 1) - (int) JSQuantidade.getValue(), i, 1);
+                if ((int) JTFerramentas.getValueAt(i, 1) <= 0) {
+                    removeDaTabela(idAtual);
+                }
+                return;
+            }
+        }
+    }
+    private void removeDaTabela(int id) {
+        for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
+            int idAtual = Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]);
+            // nome da ferramenta -> split com " " -> primeiro da lista pra int é o id
+            if (idAtual == id) {
+                // return (int) JTFerramentas.getValueAt(i, 1);
+                ((DefaultTableModel)JTFerramentas.getModel()).removeRow(i);
+                return;
+            }
+        }
     }
 
     private int getQuantidadeNaTabela(int id) {
@@ -383,7 +408,9 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
     private void JBSubtrairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBSubtrairActionPerformed
-        // TODO add your handling code here:
+        subNaTabela();
+        setFerramentaList();
+        JSQuantidade.setValue(0);
     }//GEN-LAST:event_JBSubtrairActionPerformed
 
     private void JSQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_JSQuantidadeStateChanged
@@ -400,6 +427,9 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                 JTFerramentas.setValueAt((int)JTFerramentas.getValueAt(i, 1) + getQuantidadeDisponivel(idAtual), i, 1);
                 // não, não é magia negra
                 // o geQuantidade vai acabar retornando a quantidade acima do disponivel por matematicas
+            }
+            if ((int) JTFerramentas.getValueAt(i, 1) <= 0) {
+                removeDaTabela(idAtual);
             }
         }
         setFerramentaList();
