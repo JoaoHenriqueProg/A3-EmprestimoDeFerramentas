@@ -1,9 +1,12 @@
 package telas;
 
 import dao.AmigoDAO;
+import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
+import java.util.Date;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
 public class JFCriarAluguel extends javax.swing.JFrame {
@@ -386,7 +389,26 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBGerarAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGerarAluguelActionPerformed
-        // TODO add your handling code here:
+        if (JTFerramentas.getRowCount() == 0) {
+            // TODO: jOptionPanel aqui
+            return;
+        }
+        if (JCBAmigos.getSelectedItem() == null) {
+            // TODO: jOptionPanel aqui tambem
+            return;
+        }
+        
+        EmprestimoDAO dao = new EmprestimoDAO();
+        for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
+            Emprestimo emp = new Emprestimo(
+                    dao.maiorID() + 1, 
+                    Integer.parseInt(((String)JCBAmigos.getSelectedItem()).split(" ")[0]),
+                    Integer.parseInt(((String)JTFerramentas.getValueAt(i, 0)).split(" ")[0]),
+                    (int) JTFerramentas.getValueAt(i, 1),
+                    new Date()
+            );
+            dao.insertEmprestimoBD(emp);
+        }
     }//GEN-LAST:event_JBGerarAluguelActionPerformed
 
     private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
