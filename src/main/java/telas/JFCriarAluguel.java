@@ -114,23 +114,10 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     private int getQuantidadeDisponivel(int id) {
         // DISPONIVEL = QUANTIDADE TOTAL - ALUGADO - O QUE ESTÁ DA TABELA PRA ALUGAR
         // TODO: terminar função
+        EmprestimoDAO empDao = new EmprestimoDAO();
         if (id != -1) {
             FerramentaDAO dao = new FerramentaDAO();
-            int total = dao.carregaFerramenta(id).getQuantidade() - getQuantidadeAlugada(id) - getQuantidadeNaTabela(id);
-            return total;
-        }
-        return 0;
-    }
-    
-    private int getQuantidadeAlugada(int id) {
-        if (id != -1) {
-            EmprestimoDAO dao = new EmprestimoDAO();
-            int total = 0;
-            for (Emprestimo emp : dao.getMinhaLista()) {
-                if (emp.getFerramenta() == id) {
-                    total += emp.getQuantidade();
-                }
-            }
+            int total = dao.carregaFerramenta(id).getQuantidade() - empDao.getQuantidadeFerramentaAlugada(id) - getQuantidadeNaTabela(id);
             return total;
         }
         return 0;

@@ -149,4 +149,16 @@ public class EmprestimoDAO {
             throw new RuntimeException(erro);
         }
     }
+    
+    public int getQuantidadeFerramentaAlugada(int id) {
+        int total = 0;
+        
+        for (Emprestimo emp : this.getMinhaLista()) {
+            if (emp.getFerramenta() == id) {
+                total += emp.getQuantidade();
+            }
+        }
+        
+        return total;
+    }
 }
