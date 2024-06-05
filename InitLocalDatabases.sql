@@ -37,10 +37,10 @@ CREATE TABLE TBRegistros(
 );
 
 # Cria a tabela de empréstimos
-CREATE DATABASE IF NOT EXISTS TBEmprestimo;
-USE TBEmprestimo;
-DROP TABLE IF EXISTS TBEmprestimo;
-CREATE TABLE TBEmprestimo(
+CREATE DATABASE IF NOT EXISTS TBEmprestimos;
+USE TBEmprestimos;
+DROP TABLE IF EXISTS TBEmprestimos;
+CREATE TABLE TBEmprestimos(
 	id INTEGER NOT NULL,
     amigo INT,
     ferramenta INT,
