@@ -44,7 +44,7 @@ public class JFMenu extends javax.swing.JFrame {
         jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
         MIRelatorio = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        JMConfiguracoes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -185,9 +185,19 @@ public class JFMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setForeground(new java.awt.Color(255, 255, 252));
-        jMenu2.setText("Configurações");
-        jMenuBar1.add(jMenu2);
+        JMConfiguracoes.setForeground(new java.awt.Color(255, 255, 252));
+        JMConfiguracoes.setText("Configurações");
+        JMConfiguracoes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JMConfiguracoesMouseClicked(evt);
+            }
+        });
+        JMConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMConfiguracoesActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(JMConfiguracoes);
 
         setJMenuBar(jMenuBar1);
 
@@ -250,6 +260,18 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_MIRelatorioActionPerformed
 
+    private void JMConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMConfiguracoesActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_JMConfiguracoesActionPerformed
+
+    private void JMConfiguracoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMConfiguracoesMouseClicked
+        // TODO add your handling code here:
+                JFConfiguracoes objeto = new JFConfiguracoes();
+                objeto.setLocationRelativeTo(null);
+                objeto.setVisible(true);
+    }//GEN-LAST:event_JMConfiguracoesMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -286,6 +308,7 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu JMConfiguracoes;
     private javax.swing.JTable JTEmprestimos;
     private javax.swing.JMenuItem MIRelatorio;
     private javax.swing.JButton jButton1;
@@ -293,7 +316,6 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItemGerenciaCliente;
     private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
