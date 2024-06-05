@@ -46,6 +46,7 @@ public class JFMenu extends javax.swing.JFrame {
         jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
         MIRelatorio = new javax.swing.JMenuItem();
+        jMenuItemDevolverFerramentas = new javax.swing.JMenuItem();
         JMConfiguracoes = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -192,6 +193,14 @@ public class JFMenu extends javax.swing.JFrame {
         });
         jMenu1.add(MIRelatorio);
 
+        jMenuItemDevolverFerramentas.setText("Devolver ferramentas");
+        jMenuItemDevolverFerramentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemDevolverFerramentasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItemDevolverFerramentas);
+
         jMenuBar1.add(jMenu1);
 
         JMConfiguracoes.setForeground(new java.awt.Color(255, 255, 252));
@@ -281,6 +290,13 @@ public class JFMenu extends javax.swing.JFrame {
                 objeto.setVisible(true);
     }//GEN-LAST:event_JMConfiguracoesMouseClicked
 
+    private void jMenuItemDevolverFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDevolverFerramentasActionPerformed
+        // TODO add your handling code here:
+        JFDevolverFerramenta objeto = new JFDevolverFerramenta();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemDevolverFerramentasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -326,6 +342,7 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItemDevolverFerramentas;
     private javax.swing.JMenuItem jMenuItemGerenciaCliente;
     private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
     private javax.swing.JPanel jPanel1;
