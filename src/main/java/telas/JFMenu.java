@@ -34,20 +34,22 @@ public class JFMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         JTEmprestimos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        JBRelatorios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
         jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
-        MIRelatorio = new javax.swing.JMenuItem();
         jMenuItemDevolverFerramentas = new javax.swing.JMenuItem();
         JMConfiguracoes = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu");
@@ -92,7 +94,7 @@ public class JFMenu extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel1.setText("Alugueis pendentes:");
+        jLabel1.setText("Aluguéis pendentes:");
 
         jButton1.setBackground(new java.awt.Color(73, 159, 104));
         jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
@@ -116,11 +118,16 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(73, 159, 104));
-        jButton3.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Imprimir relatório");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBRelatorios.setBackground(new java.awt.Color(73, 159, 104));
+        JBRelatorios.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JBRelatorios.setForeground(new java.awt.Color(255, 255, 255));
+        JBRelatorios.setText("Relatórios");
+        JBRelatorios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBRelatorios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBRelatoriosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -133,7 +140,7 @@ public class JFMenu extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -150,7 +157,7 @@ public class JFMenu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton3))
+                    .addComponent(JBRelatorios))
                 .addGap(27, 27, 27)
                 .addComponent(jButton2)
                 .addContainerGap(12, Short.MAX_VALUE))
@@ -184,14 +191,6 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
         jMenu1.add(jMenuItemGerenciaFerramenta);
-
-        MIRelatorio.setText("Relatórios");
-        MIRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MIRelatorioActionPerformed(evt);
-            }
-        });
-        jMenu1.add(MIRelatorio);
 
         jMenuItemDevolverFerramentas.setText("Devolver ferramentas");
         jMenuItemDevolverFerramentas.addActionListener(new java.awt.event.ActionListener() {
@@ -272,12 +271,6 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciaFerramentaActionPerformed
 
-    private void MIRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MIRelatorioActionPerformed
-        JFRelatorios objeto = new JFRelatorios();
-        objeto.setLocationRelativeTo(null);
-        objeto.setVisible(true);
-    }//GEN-LAST:event_MIRelatorioActionPerformed
-
     private void JMConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMConfiguracoesActionPerformed
         // TODO add your handling code here:
 
@@ -296,6 +289,13 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemDevolverFerramentasActionPerformed
+
+    private void JBRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosActionPerformed
+        // TODO add your handling code here:
+        JFRelatorios objeto = new JFRelatorios();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_JBRelatoriosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -333,15 +333,15 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBRelatorios;
     private javax.swing.JMenu JMConfiguracoes;
     private javax.swing.JTable JTEmprestimos;
-    private javax.swing.JMenuItem MIRelatorio;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItemDevolverFerramentas;
     private javax.swing.JMenuItem jMenuItemGerenciaCliente;
     private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
