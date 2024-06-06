@@ -24,17 +24,24 @@ public class JFRelatorios extends javax.swing.JFrame {
         FerramentaDAO ferDao = new FerramentaDAO();
         EmprestimoDAO empDao = new EmprestimoDAO();
         ArrayList<Ferramenta> ferramentas = ferDao.getMinhaLista();
-        
-        for (int i=0; i<ferramentas.size(); i++) {
+
+        for (int i = 0; i < ferramentas.size(); i++) {
             DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
             int id = ferramentas.get(i).getId();
-            model.addRow(new Object[] {
+            model.addRow(new Object[]{
                 ferramentas.get(i).getNome(),
                 ferramentas.get(i).getPreco_de_aquisicao(),
                 empDao.getQuantidadeFerramentaAlugada(id),
-                ferramentas.get(i).getQuantidade() - empDao.getQuantidadeFerramentaAlugada(ferramentas.get(i).getId()),
-         });
-}
+                ferramentas.get(i).getQuantidade() - empDao.getQuantidadeFerramentaAlugada(ferramentas.get(i).getId()),});
+        }
+        for (int i = 0; i < ferramentas.size(); i++) {
+            DefaultTableModel model = (DefaultTableModel) JTGastos.getModel();
+            model.addRow(new Object[]{
+                ferramentas.get(i).getNome(),
+                ferramentas.get(i).getPreco_de_aquisicao() * (double) ferramentas.get(i).getQuantidade(),
+                ferramentas.get(i).getQuantidade()
+            });
+        }
 
     }
 
