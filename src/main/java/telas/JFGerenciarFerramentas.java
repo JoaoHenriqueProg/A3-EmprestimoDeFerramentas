@@ -45,11 +45,6 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         JTFRemoverId = new javax.swing.JTextField();
         JBAplicar = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar ferramentas");
@@ -188,32 +183,6 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
                 .addGap(42, 42, 42))
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 71, 119));
-
-        jMenu1.setBackground(new java.awt.Color(255, 255, 252));
-        jMenu1.setForeground(new java.awt.Color(255, 255, 252));
-        jMenu1.setText("Gerenciamento");
-
-        jMenuItem1.setText("Gerenciar clientes");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Gerenciar ferramentas");
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setBackground(new java.awt.Color(255, 255, 252));
-        jMenu2.setForeground(new java.awt.Color(255, 255, 252));
-        jMenu2.setText("Configurações");
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -287,10 +256,6 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         renderFerramentasTable();
     }//GEN-LAST:event_JBRemoverActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -339,11 +304,6 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
