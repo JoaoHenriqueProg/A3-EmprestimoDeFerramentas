@@ -4,6 +4,12 @@
  */
 package telas;
 
+import dao.EmprestimoDAO;
+import dao.FerramentaDAO;
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import modelo.Ferramenta;
+
 /**
  *
  * @author isado
@@ -15,6 +21,21 @@ public class JFRelatorios extends javax.swing.JFrame {
      */
     public JFRelatorios() {
         initComponents();
+        FerramentaDAO ferDao = new FerramentaDAO();
+        EmprestimoDAO empDao = new EmprestimoDAO();
+        ArrayList<Ferramenta> ferramentas = ferDao.getMinhaLista();
+        
+        for (int i=0; i<ferramentas.size(); i++) {
+            DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
+            int id = ferramentas.get(i).getId();
+            model.addRow(new Object[] {
+                ferramentas.get(i).getNome(),
+                ferramentas.get(i).getPreco_de_aquisicao(),
+                empDao.getQuantidadeFerramentaAlugada(id),
+                ferramentas.get(i).getQuantidade() - empDao.getQuantidadeFerramentaAlugada(ferramentas.get(i).getId()),
+         });
+}
+
     }
 
     /**
@@ -33,19 +54,19 @@ public class JFRelatorios extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        JTFerramentas = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        JTGastos = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        JTAbertos = new javax.swing.JTable();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        JTFinalizados = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        JTQuantidade = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -75,12 +96,9 @@ public class JFRelatorios extends javax.swing.JFrame {
             }
         });
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        JTFerramentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Nome", "Custo", "Emprestados", "Disponíveis"
@@ -94,7 +112,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable4);
+        jScrollPane4.setViewportView(JTFerramentas);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -106,17 +124,14 @@ public class JFRelatorios extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 92, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Ferramentas", jPanel4);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        JTGastos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Ferramenta", "Preço", "Quantidade"
@@ -130,7 +145,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable5);
+        jScrollPane5.setViewportView(JTGastos);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -147,12 +162,9 @@ public class JFRelatorios extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Gastos", jPanel5);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        JTAbertos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Amigo", "Ferramenta", "Quantidade", "Data"
@@ -166,7 +178,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(JTAbertos);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -183,12 +195,9 @@ public class JFRelatorios extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Aluguéis em aberto", jPanel6);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        JTFinalizados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Amigo", "Ferramenta", "Data"
@@ -202,7 +211,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(JTFinalizados);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -214,17 +223,14 @@ public class JFRelatorios extends javax.swing.JFrame {
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
+                .addGap(0, 92, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Aluguéis finalizados", jPanel7);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        JTQuantidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "Amigo ", "Ferramenta", "Aluguéis"
@@ -238,7 +244,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(JTQuantidade);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -408,6 +414,11 @@ public class JFRelatorios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable JTAbertos;
+    private javax.swing.JTable JTFerramentas;
+    private javax.swing.JTable JTFinalizados;
+    private javax.swing.JTable JTGastos;
+    private javax.swing.JTable JTQuantidade;
     private javax.swing.JTextField TFFiltro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -428,10 +439,5 @@ public class JFRelatorios extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
     // End of variables declaration//GEN-END:variables
 }
