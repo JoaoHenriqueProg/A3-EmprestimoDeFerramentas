@@ -6,6 +6,7 @@ package telas;
 
 import dao.AmigoDAO;
 import dao.FerramentaDAO;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Ferramenta;
@@ -298,6 +299,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             dao.updateAmigoBD(new Amigo(nome, endereco, numero, Integer.parseInt(id)));
         }
         renderAmigosTable();
+        JOptionPane.showMessageDialog(null, "Mudanças aplicadas com sucesso");
     }//GEN-LAST:event_JBAplicarActionPerformed
 
     /**

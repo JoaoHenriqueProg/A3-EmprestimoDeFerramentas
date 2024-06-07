@@ -5,6 +5,7 @@
 package telas;
 
 import dao.FerramentaDAO;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Ferramenta;
 
@@ -243,6 +244,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
             dao.updateFerramentaBD(new Ferramenta(nome, Integer.parseInt(id), Double.parseDouble(preco), Integer.parseInt(quant)));
         }
         renderFerramentasTable();
+        JOptionPane.showMessageDialog(null, "Mudanças aplicadas com sucesso");
     }//GEN-LAST:event_JBAplicarActionPerformed
 
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
