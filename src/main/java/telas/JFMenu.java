@@ -4,6 +4,7 @@
  */
 package telas;
 
+import dao.AmigoDAO;
 import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import java.util.ArrayList;
@@ -72,7 +73,7 @@ public class JFMenu extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, true, false, false
@@ -234,13 +235,17 @@ public class JFMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void renderEmprestimosTable() {
+        FerramentaDAO daoF = new FerramentaDAO();
+        AmigoDAO daoA = new AmigoDAO(); 
         EmprestimoDAO dao = new EmprestimoDAO();
         ArrayList<Emprestimo> ferramentas = dao.getMinhaLista();
         DefaultTableModel model = (DefaultTableModel) JTEmprestimos.getModel();
 
         for (Emprestimo emp : ferramentas) {
             if (emp.getQuantidade() != 0) {
-                model.addRow(new Object[]{emp.getFerramenta(), emp.getAmigo(), emp.getQuantidade(), 999, 999});
+                String nomeAmigo = daoA.carregaAmigo(emp.getAmigo()).getNome();
+                String nomeFerramenta = daoF.carregaFerramenta(emp.getFerramenta()).getNome();
+                model.addRow(new Object[]{nomeFerramenta, nomeAmigo, emp.getQuantidade(), 999, 999});
             }
         }
     }
