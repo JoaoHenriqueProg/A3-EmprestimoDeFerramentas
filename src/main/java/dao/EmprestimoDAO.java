@@ -161,4 +161,47 @@ public class EmprestimoDAO {
         
         return total;
     }
+    
+    /**
+     *
+     * @param idAmigo
+     * @return
+     */
+    public ArrayList<Integer> getFerramentasAlugadasPorAmigo(int idAmigo) {
+        ArrayList<Integer> ferramentas = new ArrayList<Integer>();
+        for (Emprestimo emp : getMinhaLista()) {
+            if (emp.getAmigo() == idAmigo) {
+                if (ferramentas.indexOf(emp.getFerramenta()) == -1) {
+                    ferramentas.add(emp.getFerramenta());
+                }
+            }
+        }
+        return ferramentas;
+    }
+    
+    public int getQuantidadeClienteAlugouDeFerramenta(int idAmg, int idFer) {
+        int total = 0;
+        for (Emprestimo emp : getMinhaLista()) {
+            if (emp.getAmigo() == idAmg && emp.getFerramenta() == idFer) {
+                total += emp.getQuantidade();
+            }
+        }
+        return total;
+    }
+    
+    public void devolverEmprestimos(int idAmg, int idFer, int praDevolver) {
+        for (Emprestimo emp : getMinhaLista()) {
+            if (emp.getAmigo() == idAmg && emp.getFerramenta() == idFer) {
+                emp.setQuantidade(emp.getQuantidade() - praDevolver);
+                if (emp.getQuantidade() < 0) {
+                    praDevolver = -emp.getQuantidade(); // magia negra matematica to com sono pede pra eu elaborar de manha
+                    emp.setQuantidade(0);
+                    this.updateEmprestimoBD(emp);
+                } else {
+                    this.updateEmprestimoBD(emp);
+                    return;
+                }
+            }
+        }
+    }
 }

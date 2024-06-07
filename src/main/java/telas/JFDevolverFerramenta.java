@@ -4,7 +4,11 @@
  */
 package telas;
 
+import dao.AmigoDAO;
+import dao.EmprestimoDAO;
+import dao.FerramentaDAO;
 import javax.swing.JOptionPane;
+import modelo.Amigo;
 
 /**
  *
@@ -17,6 +21,15 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
      */
     public JFDevolverFerramenta() {
         initComponents();
+        initAmigoComboBox();
+    }
+    private void initAmigoComboBox() {
+        AmigoDAO dao = new AmigoDAO();
+        
+        JCBAmigo.removeAllItems();
+        for (Amigo amg : dao.getMinhaLista()) {
+            JCBAmigo.addItem(amg.getId() + " - " + amg.getNome());
+        }
     }
 
     /**
@@ -34,12 +47,11 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         JLAluguel = new javax.swing.JLabel();
         JCBAluguel = new javax.swing.JComboBox<>();
         JLQuantidadeDevolver = new javax.swing.JLabel();
-        JSpinnerQuantidadeDevolver = new javax.swing.JSpinner();
-        JBDevolverFerramenta = new javax.swing.JButton();
+        JSQuantidade = new javax.swing.JSpinner();
+        JBDevolver = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Devolver Ferramentas");
-        setPreferredSize(new java.awt.Dimension(427, 299));
 
         jPanel1.setBackground(new java.awt.Color(54, 70, 125));
 
@@ -49,6 +61,16 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
 
         JCBAmigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         JCBAmigo.setPreferredSize(new java.awt.Dimension(72, 27));
+        JCBAmigo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                JCBAmigoItemStateChanged(evt);
+            }
+        });
+        JCBAmigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBAmigoActionPerformed(evt);
+            }
+        });
 
         JLAluguel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         JLAluguel.setForeground(new java.awt.Color(242, 242, 242));
@@ -56,21 +78,36 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
 
         JCBAluguel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         JCBAluguel.setPreferredSize(new java.awt.Dimension(72, 27));
+        JCBAluguel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JCBAluguelActionPerformed(evt);
+            }
+        });
 
         JLQuantidadeDevolver.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
         JLQuantidadeDevolver.setForeground(new java.awt.Color(242, 242, 242));
         JLQuantidadeDevolver.setText("Quantidade a devolver");
 
-        JSpinnerQuantidadeDevolver.setPreferredSize(new java.awt.Dimension(64, 27));
+        JSQuantidade.setPreferredSize(new java.awt.Dimension(64, 27));
+        JSQuantidade.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                JSQuantidadeStateChanged(evt);
+            }
+        });
+        JSQuantidade.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                JSQuantidadePropertyChange(evt);
+            }
+        });
 
-        JBDevolverFerramenta.setBackground(new java.awt.Color(73, 159, 104));
-        JBDevolverFerramenta.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        JBDevolverFerramenta.setForeground(new java.awt.Color(240, 240, 240));
-        JBDevolverFerramenta.setText("Devolver");
-        JBDevolverFerramenta.setPreferredSize(new java.awt.Dimension(120, 28));
-        JBDevolverFerramenta.addActionListener(new java.awt.event.ActionListener() {
+        JBDevolver.setBackground(new java.awt.Color(73, 159, 104));
+        JBDevolver.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        JBDevolver.setForeground(new java.awt.Color(240, 240, 240));
+        JBDevolver.setText("Devolver");
+        JBDevolver.setPreferredSize(new java.awt.Dimension(120, 28));
+        JBDevolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBDevolverFerramentaActionPerformed(evt);
+                JBDevolverActionPerformed(evt);
             }
         });
 
@@ -95,10 +132,10 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
                             .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(133, 133, 133)
-                        .addComponent(JBDevolverFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(JBDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(154, 154, 154)
-                        .addComponent(JSpinnerQuantidadeDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JSQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,9 +152,9 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(JLQuantidadeDevolver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(JSpinnerQuantidadeDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JSQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(JBDevolverFerramenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(JBDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -135,7 +172,7 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JBDevolverFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBDevolverFerramentaActionPerformed
+    private void JBDevolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBDevolverActionPerformed
         // TODO add your handling code here:
         if (JCBAmigo.getSelectedItem() == null) {
             JOptionPane.showMessageDialog(null, "Não há nenhum amigo selecionado");
@@ -145,7 +182,56 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Não há nenhum aluguel selecionado");
             return;
         }
-    }//GEN-LAST:event_JBDevolverFerramentaActionPerformed
+        if ((int)JSQuantidade.getValue() == 0) {
+            JOptionPane.showMessageDialog(null, "Não há nenhum aluguel selecionado");
+            return;
+        }
+        
+        int idAmg = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
+        int idFer = Integer.parseInt(((String)JCBAluguel.getSelectedItem()).split(" ")[0]);
+        int praDevolver = (int)JSQuantidade.getValue();
+        
+        EmprestimoDAO dao = new EmprestimoDAO();
+        dao.devolverEmprestimos(idAmg, idFer, praDevolver);
+        
+    }//GEN-LAST:event_JBDevolverActionPerformed
+
+    private void JCBAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBAmigoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBAmigoActionPerformed
+
+    private void JCBAmigoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCBAmigoItemStateChanged
+        EmprestimoDAO dao = new EmprestimoDAO();
+        FerramentaDAO ferDao = new FerramentaDAO();
+        JCBAluguel.removeAllItems();
+        if (JCBAmigo.getSelectedIndex() != -1) {
+            int id = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
+            for (int ferId : dao.getFerramentasAlugadasPorAmigo(id)) {
+                JCBAluguel.addItem(ferId + " - " + ferDao.carregaFerramenta(ferId).getNome());
+            }
+        }
+    }//GEN-LAST:event_JCBAmigoItemStateChanged
+
+    private void JCBAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBAluguelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JCBAluguelActionPerformed
+
+    private void JSQuantidadePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JSQuantidadePropertyChange
+        
+    }//GEN-LAST:event_JSQuantidadePropertyChange
+
+    private void JSQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_JSQuantidadeStateChanged
+        EmprestimoDAO dao = new EmprestimoDAO();
+        if ((int)JSQuantidade.getValue() < 0) {
+            JSQuantidade.setValue(0);
+        }
+        int idAmg = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
+        int idFer = Integer.parseInt(((String)JCBAluguel.getSelectedItem()).split(" ")[0]);
+        int maxPraRetornar = dao.getQuantidadeClienteAlugouDeFerramenta(idAmg, idFer);
+        if ((int)JSQuantidade.getValue() > maxPraRetornar) {
+            JSQuantidade.setValue(maxPraRetornar);
+        }
+    }//GEN-LAST:event_JSQuantidadeStateChanged
 
     /**
      * @param args the command line arguments
@@ -183,13 +269,13 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBDevolverFerramenta;
+    private javax.swing.JButton JBDevolver;
     private javax.swing.JComboBox<String> JCBAluguel;
     private javax.swing.JComboBox<String> JCBAmigo;
     private javax.swing.JLabel JLAluguel;
     private javax.swing.JLabel JLAmigo;
     private javax.swing.JLabel JLQuantidadeDevolver;
-    private javax.swing.JSpinner JSpinnerQuantidadeDevolver;
+    private javax.swing.JSpinner JSQuantidade;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

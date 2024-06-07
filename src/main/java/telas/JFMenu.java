@@ -40,7 +40,7 @@ public class JFMenu extends javax.swing.JFrame {
         JTEmprestimos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        JBExtornar = new javax.swing.JButton();
         JBRelatorios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -107,14 +107,14 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(186, 63, 29));
-        jButton2.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Extornar");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JBExtornar.setBackground(new java.awt.Color(186, 63, 29));
+        JBExtornar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JBExtornar.setForeground(new java.awt.Color(255, 255, 255));
+        JBExtornar.setText("Extornar");
+        JBExtornar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBExtornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JBExtornarActionPerformed(evt);
             }
         });
 
@@ -143,7 +143,7 @@ public class JFMenu extends javax.swing.JFrame {
                         .addComponent(JBRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBExtornar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -159,7 +159,7 @@ public class JFMenu extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(JBRelatorios))
                 .addGap(27, 27, 27)
-                .addComponent(jButton2)
+                .addComponent(JBExtornar)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -257,9 +257,11 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void JBExtornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExtornarActionPerformed
+        JFDevolverFerramenta objeto = new JFDevolverFerramenta();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_JBExtornarActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
 
@@ -333,11 +335,11 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBExtornar;
     private javax.swing.JButton JBRelatorios;
     private javax.swing.JMenu JMConfiguracoes;
     private javax.swing.JTable JTEmprestimos;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
