@@ -412,6 +412,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                     Integer.parseInt(((String)JCBAmigos.getSelectedItem()).split(" ")[0]),
                     Integer.parseInt(((String)JTFerramentas.getValueAt(i, 0)).split(" ")[0]),
                     (int) JTFerramentas.getValueAt(i, 1),
+                    new Date(),
                     new Date()
             );
             dao.insertEmprestimoBD(emp);

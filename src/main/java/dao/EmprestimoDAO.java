@@ -24,7 +24,7 @@ public class EmprestimoDAO {
                 int amigo = res.getInt("amigo");
                 int ferramenta = res.getInt("ferramenta");
                 int quantidade = res.getInt("quantidade");
-                Emprestimo objeto = new Emprestimo(id, amigo, ferramenta, quantidade, new Date()); // TODO: Implementar a data do empréstimo
+                Emprestimo objeto = new Emprestimo(id, amigo, ferramenta, quantidade, new Date(), new Date()); // TODO: Implementar a data do empréstimo
                 minhaLista.add(objeto);
             }
             res.close();
