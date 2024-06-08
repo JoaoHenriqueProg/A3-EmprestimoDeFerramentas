@@ -6,8 +6,11 @@ package telas;
 
 import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
+import dao.AmigoDAO;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
+import modelo.Amigo;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
 /**
@@ -21,9 +24,12 @@ public class JFRelatorios extends javax.swing.JFrame {
      */
     public JFRelatorios() {
         initComponents();
+        AmigoDAO amiDao = new AmigoDAO();
         FerramentaDAO ferDao = new FerramentaDAO();
         EmprestimoDAO empDao = new EmprestimoDAO();
         ArrayList<Ferramenta> ferramentas = ferDao.getMinhaLista();
+        ArrayList<Amigo> amigos = amiDao.getMinhaLista();
+        ArrayList<Emprestimo> emprestimos = empDao.getMinhaLista();
 
         for (int i = 0; i < ferramentas.size(); i++) {
             DefaultTableModel model = (DefaultTableModel) JTFerramentas.getModel();
@@ -42,7 +48,29 @@ public class JFRelatorios extends javax.swing.JFrame {
                 ferramentas.get(i).getQuantidade()
             });
         }
+        for (int i = 0; i < emprestimos.size(); i++) {
+            DefaultTableModel model = (DefaultTableModel) JTAbertos.getModel();
+            if(emprestimos.get(i).getQuantidade() > 1){
+            model.addRow(new Object[]{
+                amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
+                ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
+                emprestimos.get(i).getQuantidade(),
+                emprestimos.get(i).getDataEmprestimo()
 
+            });
+            }
+        }
+        for (int i = 0; i < emprestimos.size(); i++) {
+            DefaultTableModel model = (DefaultTableModel) JTFinalizados.getModel();
+            if(emprestimos.get(i).getQuantidade() < 1){
+            model.addRow(new Object[]{
+                amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
+                ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
+                emprestimos.get(i).getDataDevolucao()
+
+            });
+            }
+        }
     }
 
     /**
