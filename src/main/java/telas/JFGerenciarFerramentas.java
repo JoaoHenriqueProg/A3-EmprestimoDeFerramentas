@@ -213,6 +213,18 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     }
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
+         if (JTFNome.getText() .equals("")){
+             JOptionPane.showMessageDialog(null,"O(s) campo(s) estão vazio(s)!");
+             return;
+         }
+                  if (JTFPreco.getText() .equals("")){
+             JOptionPane.showMessageDialog(null,"O(s) campo(s) estão vazio(s)!");
+             return;
+         }
+                 if (JTFQuantidade.getText() .equals("")){
+             JOptionPane.showMessageDialog(null,"O(s) campo(s) estão vazio(s)!");
+             return;
+         }
         FerramentaDAO dao = new FerramentaDAO();
         String nome = JTFNome.getText();
         int quant = Integer.parseInt(JTFQuantidade.getText());
