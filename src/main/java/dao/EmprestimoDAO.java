@@ -217,4 +217,25 @@ public class EmprestimoDAO {
             }
         }
     }
+
+    public ArrayList<Integer[]> getAmigosPorAlugueis() {
+        ArrayList<Integer[]> amigosEmprestimos = new ArrayList<Integer[]>();
+        String sql = "SELECT amigo, COUNT(id) AS quantidade_emprestimos FROM TBEmprestimos GROUP BY  amigo ORDER BY quantidade_emprestimos DESC"; // TODO: data
+        try {
+            Statement stmt = this.getConexao().createStatement();
+            ResultSet res = stmt.executeQuery(sql);
+            while (res.next()) {
+                amigosEmprestimos.add(new Integer[] {
+                    res.getInt("amigo"),
+                    res.getInt("quantidade_emprestimos")
+                });
+            }
+            stmt.close();
+            // https://stackoverflow.com/questions/2832472/how-to-return-2-values-from-a-java-method
+        } catch (SQLException erro) {
+            System.out.println("Erro:" + erro);
+            throw new RuntimeException(erro);
+        }
+        return amigosEmprestimos;
+    }
 }

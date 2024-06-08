@@ -50,37 +50,33 @@ public class JFRelatorios extends javax.swing.JFrame {
         }
         for (int i = 0; i < emprestimos.size(); i++) {
             DefaultTableModel model = (DefaultTableModel) JTAbertos.getModel();
-            if(emprestimos.get(i).getQuantidade() > 0){
-            model.addRow(new Object[]{
-                amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
-                ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
-                emprestimos.get(i).getQuantidade(),
-                emprestimos.get(i).getDataEmprestimo()
+            if (emprestimos.get(i).getQuantidade() > 0) {
+                model.addRow(new Object[]{
+                    amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
+                    ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
+                    emprestimos.get(i).getQuantidade(),
+                    emprestimos.get(i).getDataEmprestimo()
 
-            });
+                });
             }
         }
         for (int i = 0; i < emprestimos.size(); i++) {
             DefaultTableModel model = (DefaultTableModel) JTFinalizados.getModel();
-            if(emprestimos.get(i).getQuantidade() < 1){
-            model.addRow(new Object[]{
-                amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
-                ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
-                emprestimos.get(i).getDataDevolucao()
+            if (emprestimos.get(i).getQuantidade() < 1) {
+                model.addRow(new Object[]{
+                    amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
+                    ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
+                    emprestimos.get(i).getDataDevolucao()
 
-            });
+                });
             }
         }
-        for (int i = 0; i < emprestimos.size(); i++) {
+        for (Integer[] linha : empDao.getAmigosPorAlugueis()) {
             DefaultTableModel model = (DefaultTableModel) JTQuantidade.getModel();
-            if(emprestimos.get(i).getQuantidade() > 0){
             model.addRow(new Object[]{
-                amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
-                ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
-                emprestimos.get(i).getQuantidade()
-
+                amiDao.carregaAmigo(linha[0]).getNome(),
+                linha[1]
             });
-            }
         }
     }
 
