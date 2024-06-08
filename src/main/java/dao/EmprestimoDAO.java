@@ -180,8 +180,9 @@ public class EmprestimoDAO {
     public ArrayList<Integer> getFerramentasAlugadasPorAmigo(int idAmigo) {
         ArrayList<Integer> ferramentas = new ArrayList<Integer>();
         for (Emprestimo emp : getMinhaLista()) {
-            if (emp.getAmigo() == idAmigo) {
+            if (emp.getAmigo() == idAmigo && emp.getQuantidade() > 0) {
                 if (ferramentas.indexOf(emp.getFerramenta()) == -1) {
+                    // ferramentas.indexOf(emp.getFerramenta()) = -1 quer dizer que ainda não está adicionado na lista
                     ferramentas.add(emp.getFerramenta());
                 }
             }

@@ -302,7 +302,12 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         
         for (Emprestimo emp : empDao.getMinhaLista()) {
             if (emp.getAmigo() == Integer.parseInt(JTFIdRemover.getText())) {
-                int pedroCertezas = JOptionPane.showConfirmDialog(null, "Há empréstimos asssociados a esse amigo.\nContinuar com essa mudança fará o nome dele(a) não aparecer nos registro.\nDeseja continuar com essa ação?", "Operação perigosa", YES_NO_OPTION);
+                String erro = "Há empréstimos asssociados a esse amigo.\nContinuar com essa mudança fará o nome dele(a) não aparecer nos registro.\n";
+                if (empDao.getFerramentasAlugadasPorAmigo(Integer.parseInt(JTFIdRemover.getText())).size() > 0) {
+                    erro += "Esse amigo está devendo " + empDao.getFerramentasAlugadasPorAmigo(Integer.parseInt(JTFIdRemover.getText())).size() + " tipos de ferramentas.\n"; 
+                }
+                erro += "Deseja continuar com essa ação?";
+                int pedroCertezas = JOptionPane.showConfirmDialog(null, erro, "Operação perigosa", YES_NO_OPTION);
                 if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
                     return;
                 }
