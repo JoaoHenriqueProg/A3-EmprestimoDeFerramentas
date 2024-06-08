@@ -5,10 +5,13 @@
 package telas;
 
 import dao.AmigoDAO;
+import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
 /**
@@ -245,7 +248,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void renderAmigosTable() {                                            
+    private void renderAmigosTable() {
         AmigoDAO dao = new AmigoDAO();
         DefaultTableModel model = (DefaultTableModel) JTAmigos.getModel();
         while (model.getRowCount() != 0) {
@@ -255,7 +258,7 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             model.addRow(new Object[]{amigue.getId(), amigue.getNome(), amigue.getEndereco(), amigue.getTelefone(), 0});
         }
     }
-    
+
     private void JTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTFNomeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_JTFNomeActionPerformed
@@ -269,19 +272,18 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFNumeroActionPerformed
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
-         if (JTFNome.getText().equals("")||JTFNumero.getText().equals("")||JTFEndereco.getText().equals("")){
-             JOptionPane.showMessageDialog(null,"Os campos estão vazios!");
-             return;
-         }
-        
-        
+        if (JTFNome.getText().equals("") || JTFNumero.getText().equals("") || JTFEndereco.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Os campos estão vazios!");
+            return;
+        }
+
         AmigoDAO dao = new AmigoDAO();
         String nome = JTFNome.getText();
         String endereco = JTFEndereco.getText();
         String numero = JTFNumero.getText();
-        
+
         dao.insertAmigoBD(new Amigo(nome, endereco, numero, dao.maiorID() + 1));
-        
+
         renderAmigosTable();
     }//GEN-LAST:event_JBAdicionarActionPerformed
 
@@ -290,11 +292,24 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFIdRemoverActionPerformed
 
     private void JBRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRemoverActionPerformed
-          if (JTFIdRemover.getText() .equals("")){
-             JOptionPane.showMessageDialog(null,"O campo está vazio!");
-             return;
-         }
+        EmprestimoDAO empDao = new EmprestimoDAO();
         AmigoDAO dao = new AmigoDAO();
+        
+        if (JTFIdRemover.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "O campo está vazio!");
+            return;
+        }
+        
+        for (Emprestimo emp : empDao.getMinhaLista()) {
+            if (emp.getAmigo() == Integer.parseInt(JTFIdRemover.getText())) {
+                int pedroCertezas = JOptionPane.showConfirmDialog(null, "Há empréstimos asssociados a esse amigo.\nContinuar com essa mudança fará o nome dele(a) não aparecer nos registro.\nDeseja continuar com essa ação?", "Operação perigosa", YES_NO_OPTION);
+                if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
+                    return;
+                }
+                break;
+            }
+        }
+        
         dao.deleteAmigoBD(Integer.parseInt(JTFIdRemover.getText()));
         renderAmigosTable();
     }//GEN-LAST:event_JBRemoverActionPerformed

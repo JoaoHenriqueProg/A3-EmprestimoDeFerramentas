@@ -96,6 +96,13 @@ public class AmigoDAO {
             objeto.setId(res.getInt("id"));
             stmt.close();
         } catch (SQLException erro) {
+            if (erro.getErrorCode() == 0) {
+                // acontece quando o programa tenta pegar o id de algum amigo que foi
+                // deletdo, nesse caso vai retornar um amigo com mensagem de error nos
+                // atributos que der
+                return new Amigo("[AMIGO DELETADO]", "[AMIGO DELETADO]", "[AMIGO DELETADO]", -1);
+            }
+            
             System.out.println("Erro:" + erro);
         }
         return objeto;
