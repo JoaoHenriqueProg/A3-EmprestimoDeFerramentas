@@ -4,9 +4,12 @@
  */
 package telas;
 
+import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.table.DefaultTableModel;
+import modelo.Emprestimo;
 import modelo.Ferramenta;
 
 /**
@@ -266,6 +269,30 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     private void JBRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRemoverActionPerformed
         int id = Integer.parseInt(JTFRemoverId.getText());
         FerramentaDAO dao = new FerramentaDAO();
+        EmprestimoDAO empDao = new EmprestimoDAO();
+        
+        // primeiro checa se há empréstimos em aberto
+        for (Emprestimo emp : empDao.getMinhaLista()) {
+            if (emp.getFerramenta() == Integer.parseInt(JTFRemoverId.getText())) {
+                if (emp.getQuantidade() > 0) {
+                    JOptionPane.showMessageDialog(null, "Não é possível apagar ferramentas com empréstimos abertos.");
+                    return;
+                }
+            }
+        }
+        // depois checa se há empréstimos passados
+        for (Emprestimo emp : empDao.getMinhaLista()) {
+            if (emp.getFerramenta() == Integer.parseInt(JTFRemoverId.getText())) {
+                String erro = "Há empréstimos passados asssociados a essa ferramenta.\nContinuar com essa mudança fará o nome dela não aparecer nos registro.\n";
+                erro += "Deseja continuar com essa ação?";
+                int pedroCertezas = JOptionPane.showConfirmDialog(null, erro, "Operação perigosa", YES_NO_OPTION);
+                if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
+                    return;
+                }
+                break;
+            }
+        }
+        
         dao.deleteFerramentaBD(id);
         renderFerramentasTable();
     }//GEN-LAST:event_JBRemoverActionPerformed
