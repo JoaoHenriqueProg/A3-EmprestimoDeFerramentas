@@ -250,6 +250,17 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFRemoverIdActionPerformed
 
     private void JBAplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAplicarActionPerformed
+        EmprestimoDAO empDao = new EmprestimoDAO();
+        for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
+            String id = JTFerramentas.getModel().getValueAt(i, 0).toString();
+            String quant = JTFerramentas.getModel().getValueAt(i, 3).toString();
+            
+            if (Integer.parseInt(quant) < empDao.getQuantidadeFerramentaAlugada(Integer.parseInt(id))) {
+                JOptionPane.showMessageDialog(null, "A quantidade emprestada atualmente é maior do que a nova quantidade total.\nNa ferramenta: " + JTFerramentas.getModel().getValueAt(i, 1).toString() + ".");
+                return;
+            }
+        }
+        
         FerramentaDAO dao = new FerramentaDAO();
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             String id = JTFerramentas.getModel().getValueAt(i, 0).toString();
