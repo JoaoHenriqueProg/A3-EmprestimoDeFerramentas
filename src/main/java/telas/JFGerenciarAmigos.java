@@ -300,12 +300,19 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
             return;
         }
         
+        // primeiro checa se há empréstimos em aberto
         for (Emprestimo emp : empDao.getMinhaLista()) {
             if (emp.getAmigo() == Integer.parseInt(JTFIdRemover.getText())) {
-                String erro = "Há empréstimos asssociados a esse amigo.\nContinuar com essa mudança fará o nome dele(a) não aparecer nos registro.\n";
-                if (empDao.getFerramentasAlugadasPorAmigo(Integer.parseInt(JTFIdRemover.getText())).size() > 0) {
-                    erro += "Esse amigo está devendo " + empDao.getFerramentasAlugadasPorAmigo(Integer.parseInt(JTFIdRemover.getText())).size() + " tipos de ferramentas.\n"; 
+                if (emp.getQuantidade() > 0) {
+                    JOptionPane.showMessageDialog(null, "Não é possível apagar amigos com empréstimos abertos.");
+                    return;
                 }
+            }
+        }
+        // depois checa se há empréstimos passados
+        for (Emprestimo emp : empDao.getMinhaLista()) {
+            if (emp.getAmigo() == Integer.parseInt(JTFIdRemover.getText())) {
+                String erro = "Há empréstimos passados asssociados a esse amigo.\nContinuar com essa mudança fará o nome dele(a) não aparecer nos registro.\n";
                 erro += "Deseja continuar com essa ação?";
                 int pedroCertezas = JOptionPane.showConfirmDialog(null, erro, "Operação perigosa", YES_NO_OPTION);
                 if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
