@@ -71,6 +71,17 @@ public class JFRelatorios extends javax.swing.JFrame {
             });
             }
         }
+        for (int i = 0; i < emprestimos.size(); i++) {
+            DefaultTableModel model = (DefaultTableModel) JTQuantidade.getModel();
+            if(emprestimos.get(i).getQuantidade() > 0){
+            model.addRow(new Object[]{
+                amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
+                ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
+                emprestimos.get(i).getQuantidade()
+
+            });
+            }
+        }
     }
 
     /**
