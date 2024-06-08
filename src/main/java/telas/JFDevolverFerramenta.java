@@ -195,7 +195,7 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         
         EmprestimoDAO dao = new EmprestimoDAO();
         dao.devolverEmprestimos(idAmg, idFer, praDevolver);
-                
+        JSQuantidade.setValue(0);        
     }//GEN-LAST:event_JBDevolverActionPerformed
 
     private void JCBAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBAmigoActionPerformed
