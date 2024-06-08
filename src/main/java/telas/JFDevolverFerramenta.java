@@ -23,12 +23,16 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         initComponents();
         initAmigoComboBox();
     }
+
     private void initAmigoComboBox() {
         AmigoDAO dao = new AmigoDAO();
-        
+        EmprestimoDAO empDao = new EmprestimoDAO();
+
         JCBAmigo.removeAllItems();
         for (Amigo amg : dao.getMinhaLista()) {
-            JCBAmigo.addItem(amg.getId() + " - " + amg.getNome());
+            if (empDao.getFerramentasAlugadasPorAmigo(amg.getId()).size() > 0) {
+                JCBAmigo.addItem(amg.getId() + " - " + amg.getNome());
+            }
         }
     }
 
@@ -184,18 +188,18 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Não há nenhum empréstimo selecionado");
             return;
         }
-        if ((int)JSQuantidade.getValue() == 0) {
+        if ((int) JSQuantidade.getValue() == 0) {
             JOptionPane.showMessageDialog(null, "Não há nenhum empréstimo selecionado");
             return;
         }
-        
-        int idAmg = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
-        int idFer = Integer.parseInt(((String)JCBEmprestimo.getSelectedItem()).split(" ")[0]);
-        int praDevolver = (int)JSQuantidade.getValue();
-        
+
+        int idAmg = Integer.parseInt(((String) JCBAmigo.getSelectedItem()).split(" ")[0]);
+        int idFer = Integer.parseInt(((String) JCBEmprestimo.getSelectedItem()).split(" ")[0]);
+        int praDevolver = (int) JSQuantidade.getValue();
+
         EmprestimoDAO dao = new EmprestimoDAO();
         dao.devolverEmprestimos(idAmg, idFer, praDevolver);
-        JSQuantidade.setValue(0);        
+        JSQuantidade.setValue(0);
         JCBEmprestimo.setSelectedItem(null);
     }//GEN-LAST:event_JBDevolverActionPerformed
 
@@ -208,7 +212,7 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         FerramentaDAO ferDao = new FerramentaDAO();
         JCBEmprestimo.removeAllItems();
         if (JCBAmigo.getSelectedIndex() != -1) {
-            int id = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
+            int id = Integer.parseInt(((String) JCBAmigo.getSelectedItem()).split(" ")[0]);
             for (int ferId : dao.getFerramentasAlugadasPorAmigo(id)) {
                 JCBEmprestimo.addItem(ferId + " - " + ferDao.carregaFerramenta(ferId).getNome());
             }
@@ -220,18 +224,18 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
     }//GEN-LAST:event_JCBEmprestimoActionPerformed
 
     private void JSQuantidadePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JSQuantidadePropertyChange
-        
+
     }//GEN-LAST:event_JSQuantidadePropertyChange
 
     private void JSQuantidadeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_JSQuantidadeStateChanged
         EmprestimoDAO dao = new EmprestimoDAO();
-        if ((int)JSQuantidade.getValue() < 0) {
+        if ((int) JSQuantidade.getValue() < 0) {
             JSQuantidade.setValue(0);
         }
-        int idAmg = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
-        int idFer = Integer.parseInt(((String)JCBEmprestimo.getSelectedItem()).split(" ")[0]);
+        int idAmg = Integer.parseInt(((String) JCBAmigo.getSelectedItem()).split(" ")[0]);
+        int idFer = Integer.parseInt(((String) JCBEmprestimo.getSelectedItem()).split(" ")[0]);
         int maxPraRetornar = dao.getQuantidadeClienteAlugouDeFerramenta(idAmg, idFer);
-        if ((int)JSQuantidade.getValue() > maxPraRetornar) {
+        if ((int) JSQuantidade.getValue() > maxPraRetornar) {
             JSQuantidade.setValue(maxPraRetornar);
         }
     }//GEN-LAST:event_JSQuantidadeStateChanged
