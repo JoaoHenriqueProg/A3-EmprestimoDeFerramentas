@@ -45,6 +45,7 @@ CREATE TABLE TBEmprestimos(
     amigo INT,
     ferramenta INT,
     quantidade INT,
-    # TODO: data do empréstimo
+    data_inicio DATE DEFAULT (CURRENT_DATE),
+    data_final DATE,
 	PRIMARY KEY(id)
 );

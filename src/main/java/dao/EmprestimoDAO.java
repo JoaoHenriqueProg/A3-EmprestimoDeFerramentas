@@ -7,11 +7,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import static java.sql.Types.DATE;
 import java.util.ArrayList;
 import java.util.Date;
 import modelo.Emprestimo;
 
 public class EmprestimoDAO {
+
     public ArrayList<Emprestimo> minhaLista = new ArrayList<>();
 
     public ArrayList<Emprestimo> getMinhaLista() {
@@ -24,7 +26,9 @@ public class EmprestimoDAO {
                 int amigo = res.getInt("amigo");
                 int ferramenta = res.getInt("ferramenta");
                 int quantidade = res.getInt("quantidade");
-                Emprestimo objeto = new Emprestimo(id, amigo, ferramenta, quantidade, new Date(), new Date()); // TODO: Implementar a data do empréstimo
+                Date dataInicio = res.getDate("data_inicio");
+                Date dataFinal = res.getDate("data_final");
+                Emprestimo objeto = new Emprestimo(id, amigo, ferramenta, quantidade, dataInicio, dataFinal); // TODO: Implementar a data do empréstimo
                 minhaLista.add(objeto);
             }
             res.close();
@@ -134,13 +138,19 @@ public class EmprestimoDAO {
 
     // Edita um Emprestimo específico pelo seu campo ID
     public boolean updateEmprestimoBD(Emprestimo objeto) {
-        String sql = "UPDATE TBEmprestimos set amigo = ?, ferramenta = ?, quantidade = ? WHERE id = ?";
+        String sql = "UPDATE TBEmprestimos set amigo = ?, ferramenta = ?, quantidade = ?, data_final = ? WHERE id = ?";
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setInt(1, objeto.getAmigo());
             stmt.setInt(2, objeto.getFerramenta());
             stmt.setInt(3, objeto.getQuantidade());
-            stmt.setInt(4, objeto.getId());
+            if (objeto.getDataDevolucao() == null) {
+                stmt.setNull(4, DATE);
+            } else {
+                stmt.setDate(4, new java.sql.Date(objeto.getDataDevolucao().getTime()));
+            }
+            // https://stackoverflow.com/questions/21575253/classcastexception-java-util-date-cannot-be-cast-to-java-sql-date
+            stmt.setInt(5, objeto.getId());
             stmt.execute();
             stmt.close();
             return true;
@@ -149,19 +159,19 @@ public class EmprestimoDAO {
             throw new RuntimeException(erro);
         }
     }
-    
+
     public int getQuantidadeFerramentaAlugada(int id) {
         int total = 0;
-        
+
         for (Emprestimo emp : this.getMinhaLista()) {
             if (emp.getFerramenta() == id) {
                 total += emp.getQuantidade();
             }
         }
-        
+
         return total;
     }
-    
+
     /**
      *
      * @param idAmigo
@@ -178,7 +188,7 @@ public class EmprestimoDAO {
         }
         return ferramentas;
     }
-    
+
     public int getQuantidadeClienteAlugouDeFerramenta(int idAmg, int idFer) {
         int total = 0;
         for (Emprestimo emp : getMinhaLista()) {
@@ -188,14 +198,16 @@ public class EmprestimoDAO {
         }
         return total;
     }
-    
+
     public void devolverEmprestimos(int idAmg, int idFer, int praDevolver) {
         for (Emprestimo emp : getMinhaLista()) {
-            if (emp.getAmigo() == idAmg && emp.getFerramenta() == idFer) {
+            // se o emprestimor do amigo com essa ferramenta e ainda estiver aberto
+            if (emp.getAmigo() == idAmg && emp.getFerramenta() == idFer && emp.getQuantidade() > 0) {
                 emp.setQuantidade(emp.getQuantidade() - praDevolver);
-                if (emp.getQuantidade() < 0) {
+                if (emp.getQuantidade() <= 0) {
                     praDevolver = -emp.getQuantidade(); // magia negra matematica to com sono pede pra eu elaborar de manha
                     emp.setQuantidade(0);
+                    emp.setDataDevolucao(new Date());
                     this.updateEmprestimoBD(emp);
                 } else {
                     this.updateEmprestimoBD(emp);
