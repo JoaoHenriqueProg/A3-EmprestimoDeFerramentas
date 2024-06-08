@@ -269,6 +269,12 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFNumeroActionPerformed
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
+         if (JTFNome.getText().equals("")||JTFNumero.getText().equals("")||JTFEndereco.getText().equals("")){
+             JOptionPane.showMessageDialog(null,"Os campos estão vazios!");
+             return;
+         }
+        
+        
         AmigoDAO dao = new AmigoDAO();
         String nome = JTFNome.getText();
         String endereco = JTFEndereco.getText();
@@ -284,6 +290,10 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
     }//GEN-LAST:event_JTFIdRemoverActionPerformed
 
     private void JBRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRemoverActionPerformed
+          if (JTFIdRemover.getText() .equals("")){
+             JOptionPane.showMessageDialog(null,"O campo está vazio!");
+             return;
+         }
         AmigoDAO dao = new AmigoDAO();
         dao.deleteAmigoBD(Integer.parseInt(JTFIdRemover.getText()));
         renderAmigosTable();

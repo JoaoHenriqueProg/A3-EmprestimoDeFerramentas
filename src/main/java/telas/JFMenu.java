@@ -69,14 +69,14 @@ public class JFMenu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Ferramenta", "Cliente", "Quantidade", "Desde", "Prazo devolução"
+                "Cliente", "Ferramenta", "Quantidade", "Desde"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false
+                false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -246,11 +246,10 @@ public class JFMenu extends javax.swing.JFrame {
                 String nomeAmigo = daoA.carregaAmigo(emp.getAmigo()).getNome();
                 String nomeFerramenta = daoF.carregaFerramenta(emp.getFerramenta()).getNome();
                 model.addRow(new Object[]{
-                    nomeFerramenta, 
                     nomeAmigo, 
+                    nomeFerramenta, 
                     emp.getQuantidade(), 
                     emp.getDataEmprestimo(), 
-                    emp.getDataDevolucao()
                 });
             }
         }
