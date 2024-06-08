@@ -245,7 +245,13 @@ public class JFMenu extends javax.swing.JFrame {
             if (emp.getQuantidade() != 0) {
                 String nomeAmigo = daoA.carregaAmigo(emp.getAmigo()).getNome();
                 String nomeFerramenta = daoF.carregaFerramenta(emp.getFerramenta()).getNome();
-                model.addRow(new Object[]{nomeFerramenta, nomeAmigo, emp.getQuantidade(), 999, 999});
+                model.addRow(new Object[]{
+                    nomeFerramenta, 
+                    nomeAmigo, 
+                    emp.getQuantidade(), 
+                    emp.getDataEmprestimo(), 
+                    emp.getDataDevolucao()
+                });
             }
         }
     }
