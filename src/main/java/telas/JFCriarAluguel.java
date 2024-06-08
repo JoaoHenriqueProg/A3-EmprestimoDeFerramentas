@@ -5,6 +5,7 @@ import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
 import modelo.Emprestimo;
@@ -381,6 +382,16 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         }
         
         EmprestimoDAO dao = new EmprestimoDAO();
+        int idamigo = Integer.parseInt(((String)JCBAmigos.getSelectedItem()).split(" ")[0]);
+        if (dao.getFerramentasAlugadasPorAmigo(idamigo).size()>0){
+            String erro = "Esse amigo está devendo uma ferramenta.\n";
+                erro += "Deseja continuar com essa ação?";
+                int pedroCertezas = JOptionPane.showConfirmDialog(null, erro, "Operação perigosa", YES_NO_OPTION);
+                if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
+                    return;
+                }
+                
+        }
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             Emprestimo emp = new Emprestimo(
                     dao.maiorID() + 1, 
