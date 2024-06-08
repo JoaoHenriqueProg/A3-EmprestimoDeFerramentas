@@ -150,8 +150,6 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         JLInicioAluguel = new javax.swing.JLabel();
         JBGerarAluguel = new javax.swing.JButton();
         JCBAmigos = new javax.swing.JComboBox<>();
-        JLIdLocador1 = new javax.swing.JLabel();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         JTFerramentas = new javax.swing.JTable();
         JCBFerramentas = new javax.swing.JComboBox<>();
@@ -197,7 +195,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
         JBGerarAluguel.setBackground(new java.awt.Color(73, 159, 104));
         JBGerarAluguel.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        JBGerarAluguel.setText("Alugar");
+        JBGerarAluguel.setText("Fazer empréstimo");
         JBGerarAluguel.setPreferredSize(new java.awt.Dimension(129, 22));
         JBGerarAluguel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,17 +205,6 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
         JCBAmigos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         JCBAmigos.setSelectedIndex(-1);
-
-        JLIdLocador1.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        JLIdLocador1.setForeground(new java.awt.Color(240, 240, 240));
-        JLIdLocador1.setText("Data:");
-
-        jFormattedTextField1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        jFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField1ActionPerformed(evt);
-            }
-        });
 
         JTFerramentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -304,12 +291,9 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JBGerarAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -332,15 +316,15 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                                     .addComponent(JCBFerramentas, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(JCBAmigos, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
-                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(JLInicioAluguel)
-                                            .addComponent(JLIdLocador1)
-                                            .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(JLInicioAluguel)
                                         .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(60, 60, 60)))
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(JLFerramenta)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBGerarAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(176, 176, 176))
         );
         jPanel3Layout.setVerticalGroup(
@@ -351,7 +335,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                     .addComponent(JLFerramenta)
                     .addComponent(JLInicioAluguel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50))
@@ -370,10 +354,6 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                             .addComponent(JLQuantidade)
                             .addComponent(JBAdicionar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(JBSubtrair, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JLIdLocador1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(JBGerarAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -419,10 +399,6 @@ public class JFCriarAluguel extends javax.swing.JFrame {
         renderFerramentasTable();
         }
     }//GEN-LAST:event_JBGerarAluguelActionPerformed
-
-    private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFormattedTextField1ActionPerformed
 
     private void JCBFerramentasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JCBFerramentasPropertyChange
         // TODO: achar um jeito de remover essa função
@@ -521,14 +497,12 @@ public class JFCriarAluguel extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> JCBAmigos;
     private javax.swing.JComboBox<String> JCBFerramentas;
     private javax.swing.JLabel JLFerramenta;
-    private javax.swing.JLabel JLIdLocador1;
     private javax.swing.JLabel JLIdLocador3;
     private javax.swing.JLabel JLInicioAluguel;
     private javax.swing.JLabel JLInicioAluguel1;
     private javax.swing.JLabel JLQuantidade;
     private javax.swing.JSpinner JSQuantidade;
     private javax.swing.JTable JTFerramentas;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;

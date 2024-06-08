@@ -296,8 +296,8 @@
                 <Container class="javax.swing.JPanel" name="jPanel6">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Alugu&#xe9;is em aberto">
-                        <Property name="tabTitle" type="java.lang.String" value="Alugu&#xe9;is em aberto"/>
+                      <JTabbedPaneConstraints tabName="Empr&#xe9;stimos em aberto">
+                        <Property name="tabTitle" type="java.lang.String" value="Empr&#xe9;stimos em aberto"/>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -371,8 +371,8 @@
                 <Container class="javax.swing.JPanel" name="jPanel7">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Alugu&#xe9;is finalizados">
-                        <Property name="tabTitle" type="java.lang.String" value="Alugu&#xe9;is finalizados"/>
+                      <JTabbedPaneConstraints tabName="Empr&#xe9;stimos finalizados">
+                        <Property name="tabTitle" type="java.lang.String" value="Empr&#xe9;stimos finalizados"/>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -440,8 +440,8 @@
                 <Container class="javax.swing.JPanel" name="jPanel8">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                      <JTabbedPaneConstraints tabName="Quantidade de Alugu&#xe9;is">
-                        <Property name="tabTitle" type="java.lang.String" value="Quantidade de Alugu&#xe9;is"/>
+                      <JTabbedPaneConstraints tabName="Quantidade de Empr&#xe9;stimos">
+                        <Property name="tabTitle" type="java.lang.String" value="Quantidade de Empr&#xe9;stimos"/>
                       </JTabbedPaneConstraints>
                     </Constraint>
                   </Constraints>
@@ -472,19 +472,13 @@
                         <Component class="javax.swing.JTable" name="JTQuantidade">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                              <Table columnCount="3" rowCount="0">
+                              <Table columnCount="2" rowCount="0">
                                 <Column editable="true" title="Amigo " type="java.lang.String"/>
-                                <Column editable="true" title="Ferramenta" type="java.lang.String"/>
-                                <Column editable="true" title="Alugu&#xe9;is" type="java.lang.Integer"/>
+                                <Column editable="true" title="Empr&#xe9;stimos" type="java.lang.Integer"/>
                               </Table>
                             </Property>
                             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                               <TableColumnModel selectionModel="0">
-                                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                                  <Title/>
-                                  <Editor/>
-                                  <Renderer/>
-                                </Column>
                                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                                   <Title/>
                                   <Editor/>

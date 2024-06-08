@@ -223,7 +223,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Aluguéis em aberto", jPanel6);
+        jTabbedPane1.addTab("Empréstimos em aberto", jPanel6);
 
         JTFinalizados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -256,18 +256,18 @@ public class JFRelatorios extends javax.swing.JFrame {
                 .addGap(0, 92, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Aluguéis finalizados", jPanel7);
+        jTabbedPane1.addTab("Empréstimos finalizados", jPanel7);
 
         JTQuantidade.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Amigo ", "Ferramenta", "Aluguéis"
+                "Amigo ", "Empréstimos"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -289,7 +289,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Quantidade de Aluguéis", jPanel8);
+        jTabbedPane1.addTab("Quantidade de Empréstimos", jPanel8);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

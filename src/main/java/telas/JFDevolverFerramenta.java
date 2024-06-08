@@ -44,8 +44,8 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         JLAmigo = new javax.swing.JLabel();
         JCBAmigo = new javax.swing.JComboBox<>();
-        JLAluguel = new javax.swing.JLabel();
-        JCBAluguel = new javax.swing.JComboBox<>();
+        JLEmprestimo = new javax.swing.JLabel();
+        JCBEmprestimo = new javax.swing.JComboBox<>();
         JLQuantidadeDevolver = new javax.swing.JLabel();
         JSQuantidade = new javax.swing.JSpinner();
         JBDevolver = new javax.swing.JButton();
@@ -72,15 +72,15 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
             }
         });
 
-        JLAluguel.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
-        JLAluguel.setForeground(new java.awt.Color(242, 242, 242));
-        JLAluguel.setText("Aluguel");
+        JLEmprestimo.setFont(new java.awt.Font("Comic Sans MS", 1, 18)); // NOI18N
+        JLEmprestimo.setForeground(new java.awt.Color(242, 242, 242));
+        JLEmprestimo.setText("Empréstimo");
 
-        JCBAluguel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        JCBAluguel.setPreferredSize(new java.awt.Dimension(72, 27));
-        JCBAluguel.addActionListener(new java.awt.event.ActionListener() {
+        JCBEmprestimo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        JCBEmprestimo.setPreferredSize(new java.awt.Dimension(72, 27));
+        JCBEmprestimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JCBAluguelActionPerformed(evt);
+                JCBEmprestimoActionPerformed(evt);
             }
         });
 
@@ -115,28 +115,30 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(JLQuantidadeDevolver)
-                .addGap(99, 99, 99))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(JLQuantidadeDevolver)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(83, 83, 83)
+                                    .addComponent(JLAmigo))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(38, 38, 38)
+                                    .addComponent(JLEmprestimo)))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(JCBEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(JLAmigo)
-                            .addComponent(JLAluguel))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(JCBAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(JBDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(154, 154, 154)
+                        .addGap(171, 171, 171)
                         .addComponent(JSQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(113, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(JBDevolver, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(145, 145, 145))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,8 +149,8 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
                     .addComponent(JCBAmigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JLAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JCBAluguel, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
+                    .addComponent(JLEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JCBEmprestimo, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(JLQuantidadeDevolver)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -178,22 +180,22 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Não há nenhum amigo selecionado");
             return;
         }
-        if (JCBAluguel.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null, "Não há nenhum aluguel selecionado");
+        if (JCBEmprestimo.getSelectedItem() == null) {
+            JOptionPane.showMessageDialog(null, "Não há nenhum empréstimo selecionado");
             return;
         }
         if ((int)JSQuantidade.getValue() == 0) {
-            JOptionPane.showMessageDialog(null, "Não há nenhum aluguel selecionado");
+            JOptionPane.showMessageDialog(null, "Não há nenhum empréstimo selecionado");
             return;
         }
         
         int idAmg = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
-        int idFer = Integer.parseInt(((String)JCBAluguel.getSelectedItem()).split(" ")[0]);
+        int idFer = Integer.parseInt(((String)JCBEmprestimo.getSelectedItem()).split(" ")[0]);
         int praDevolver = (int)JSQuantidade.getValue();
         
         EmprestimoDAO dao = new EmprestimoDAO();
         dao.devolverEmprestimos(idAmg, idFer, praDevolver);
-        
+                
     }//GEN-LAST:event_JBDevolverActionPerformed
 
     private void JCBAmigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBAmigoActionPerformed
@@ -203,18 +205,18 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
     private void JCBAmigoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_JCBAmigoItemStateChanged
         EmprestimoDAO dao = new EmprestimoDAO();
         FerramentaDAO ferDao = new FerramentaDAO();
-        JCBAluguel.removeAllItems();
+        JCBEmprestimo.removeAllItems();
         if (JCBAmigo.getSelectedIndex() != -1) {
             int id = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
             for (int ferId : dao.getFerramentasAlugadasPorAmigo(id)) {
-                JCBAluguel.addItem(ferId + " - " + ferDao.carregaFerramenta(ferId).getNome());
+                JCBEmprestimo.addItem(ferId + " - " + ferDao.carregaFerramenta(ferId).getNome());
             }
         }
     }//GEN-LAST:event_JCBAmigoItemStateChanged
 
-    private void JCBAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBAluguelActionPerformed
+    private void JCBEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JCBEmprestimoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_JCBAluguelActionPerformed
+    }//GEN-LAST:event_JCBEmprestimoActionPerformed
 
     private void JSQuantidadePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JSQuantidadePropertyChange
         
@@ -226,7 +228,7 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
             JSQuantidade.setValue(0);
         }
         int idAmg = Integer.parseInt(((String)JCBAmigo.getSelectedItem()).split(" ")[0]);
-        int idFer = Integer.parseInt(((String)JCBAluguel.getSelectedItem()).split(" ")[0]);
+        int idFer = Integer.parseInt(((String)JCBEmprestimo.getSelectedItem()).split(" ")[0]);
         int maxPraRetornar = dao.getQuantidadeClienteAlugouDeFerramenta(idAmg, idFer);
         if ((int)JSQuantidade.getValue() > maxPraRetornar) {
             JSQuantidade.setValue(maxPraRetornar);
@@ -270,10 +272,10 @@ public class JFDevolverFerramenta extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBDevolver;
-    private javax.swing.JComboBox<String> JCBAluguel;
     private javax.swing.JComboBox<String> JCBAmigo;
-    private javax.swing.JLabel JLAluguel;
+    private javax.swing.JComboBox<String> JCBEmprestimo;
     private javax.swing.JLabel JLAmigo;
+    private javax.swing.JLabel JLEmprestimo;
     private javax.swing.JLabel JLQuantidadeDevolver;
     private javax.swing.JSpinner JSQuantidade;
     private javax.swing.JPanel jPanel1;

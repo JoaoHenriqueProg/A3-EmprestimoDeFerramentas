@@ -40,8 +40,8 @@ public class JFMenu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         JTEmprestimos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        JBExtornar = new javax.swing.JButton();
+        JBEmprestarFerramenta = new javax.swing.JButton();
+        JBEstornar = new javax.swing.JButton();
         JBRelatorios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -95,27 +95,27 @@ public class JFMenu extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jLabel1.setText("Aluguéis pendentes:");
+        jLabel1.setText("Empréstimos pendentes:");
 
-        jButton1.setBackground(new java.awt.Color(73, 159, 104));
-        jButton1.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Alugar ferramenta");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBEmprestarFerramenta.setBackground(new java.awt.Color(73, 159, 104));
+        JBEmprestarFerramenta.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JBEmprestarFerramenta.setForeground(new java.awt.Color(255, 255, 255));
+        JBEmprestarFerramenta.setText("Emprestar ferramenta");
+        JBEmprestarFerramenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBEmprestarFerramenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBEmprestarFerramentaActionPerformed(evt);
             }
         });
 
-        JBExtornar.setBackground(new java.awt.Color(186, 63, 29));
-        JBExtornar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
-        JBExtornar.setForeground(new java.awt.Color(255, 255, 255));
-        JBExtornar.setText("Extornar");
-        JBExtornar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        JBExtornar.addActionListener(new java.awt.event.ActionListener() {
+        JBEstornar.setBackground(new java.awt.Color(186, 63, 29));
+        JBEstornar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JBEstornar.setForeground(new java.awt.Color(255, 255, 255));
+        JBEstornar.setText("Estornar");
+        JBEstornar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBEstornar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JBExtornarActionPerformed(evt);
+                JBEstornarActionPerformed(evt);
             }
         });
 
@@ -144,8 +144,8 @@ public class JFMenu extends javax.swing.JFrame {
                         .addComponent(JBRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JBExtornar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(JBEstornar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JBEmprestarFerramenta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -157,10 +157,10 @@ public class JFMenu extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(JBEmprestarFerramenta)
                     .addComponent(JBRelatorios))
                 .addGap(27, 27, 27)
-                .addComponent(JBExtornar)
+                .addComponent(JBEstornar)
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
@@ -261,17 +261,17 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_jMenuItemGerenciaClienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBEmprestarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestarFerramentaActionPerformed
         JFCriarAluguel objeto = new JFCriarAluguel();
         objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBEmprestarFerramentaActionPerformed
 
-    private void JBExtornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExtornarActionPerformed
+    private void JBEstornarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEstornarActionPerformed
         JFDevolverFerramenta objeto = new JFDevolverFerramenta();
         objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
-    }//GEN-LAST:event_JBExtornarActionPerformed
+    }//GEN-LAST:event_JBEstornarActionPerformed
 
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
 
@@ -295,19 +295,19 @@ public class JFMenu extends javax.swing.JFrame {
                 objeto.setVisible(true);
     }//GEN-LAST:event_JMConfiguracoesMouseClicked
 
-    private void jMenuItemDevolverFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDevolverFerramentasActionPerformed
-        // TODO add your handling code here:
-        JFDevolverFerramenta objeto = new JFDevolverFerramenta();
-        objeto.setLocationRelativeTo(null);
-        objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemDevolverFerramentasActionPerformed
-
     private void JBRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosActionPerformed
         // TODO add your handling code here:
         JFRelatorios objeto = new JFRelatorios();
         objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
     }//GEN-LAST:event_JBRelatoriosActionPerformed
+
+    private void jMenuItemDevolverFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDevolverFerramentasActionPerformed
+        // TODO add your handling code here:
+        JFDevolverFerramenta objeto = new JFDevolverFerramenta();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_jMenuItemDevolverFerramentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,11 +345,11 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton JBExtornar;
+    private javax.swing.JButton JBEmprestarFerramenta;
+    private javax.swing.JButton JBEstornar;
     private javax.swing.JButton JBRelatorios;
     private javax.swing.JMenu JMConfiguracoes;
     private javax.swing.JTable JTEmprestimos;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
