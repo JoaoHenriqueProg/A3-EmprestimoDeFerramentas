@@ -7,6 +7,7 @@ package telas;
 import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
 import dao.AmigoDAO;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import modelo.Amigo;
@@ -43,8 +44,8 @@ public class JFRelatorios extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) JTGastos.getModel();
             model.addRow(new Object[]{
                 ferramentas.get(i).getNome(),
-                ferramentas.get(i).getPreco_de_aquisicao(),
-                ferramentas.get(i).getPreco_de_aquisicao() * (double) ferramentas.get(i).getQuantidade(),
+                ferramentas.get(i).getPrecoDeAquisicao(),
+                ferramentas.get(i).getPrecoDeAquisicao() * (double) ferramentas.get(i).getQuantidade(),
                 ferramentas.get(i).getQuantidade()
             });
         }
@@ -55,8 +56,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                     amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
                     ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
                     emprestimos.get(i).getQuantidade(),
-                    emprestimos.get(i).getDataEmprestimo()
-
+                    new SimpleDateFormat("dd/MM/yyyy").format(emprestimos.get(i).getDataEmprestimo()),
                 });
             }
         }
@@ -66,9 +66,8 @@ public class JFRelatorios extends javax.swing.JFrame {
                 model.addRow(new Object[]{
                     amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
                     ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
-                    emprestimos.get(i).getDataEmprestimo(),
-                    emprestimos.get(i).getDataDevolucao()
-
+                    new SimpleDateFormat("dd/MM/yyyy").format(emprestimos.get(i).getDataEmprestimo()),
+                    new SimpleDateFormat("dd/MM/yyyy").format(emprestimos.get(i).getDataDevolucao()),
                 });
             }
         }

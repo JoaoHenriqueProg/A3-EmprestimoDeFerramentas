@@ -92,7 +92,7 @@ public class FerramentaDAO {
             res.next();
             objeto.setNome(res.getString("nome"));
             objeto.setId(res.getInt("id"));
-            objeto.setPreco_de_aquisicao(res.getDouble("preco"));
+            objeto.setPrecoDeAquisicao(res.getDouble("preco"));
             objeto.setQuantidade(res.getInt("quantidade"));
             stmt.close();
         } catch (SQLException erro) {
@@ -115,7 +115,7 @@ public class FerramentaDAO {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setInt(1, objeto.getId());
             stmt.setString(2, objeto.getNome());
-            stmt.setDouble(3, objeto.getPreco_de_aquisicao());
+            stmt.setDouble(3, objeto.getPrecoDeAquisicao());
             stmt.setDouble(4, objeto.getQuantidade());
             stmt.execute();
             stmt.close();
@@ -144,7 +144,7 @@ public class FerramentaDAO {
         try {
             PreparedStatement stmt = this.getConexao().prepareStatement(sql);
             stmt.setString(1, objeto.getNome());
-            stmt.setDouble(2, objeto.getPreco_de_aquisicao());
+            stmt.setDouble(2, objeto.getPrecoDeAquisicao());
             stmt.setInt(3, objeto.getQuantidade());
             stmt.setInt(4, objeto.getId());
             stmt.execute();

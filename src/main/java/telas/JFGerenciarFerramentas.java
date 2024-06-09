@@ -214,7 +214,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
             model.removeRow(0);
         }
         for (Ferramenta ferros : dao.getMinhaLista()) {
-            model.addRow(new Object[]{ferros.getId(), ferros.getNome(), ferros.getPreco_de_aquisicao(), ferros.getQuantidade()});
+            model.addRow(new Object[]{ferros.getId(), ferros.getNome(), ferros.getPrecoDeAquisicao(), ferros.getQuantidade()});
         }
     }
 

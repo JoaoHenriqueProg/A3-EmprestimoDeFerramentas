@@ -7,6 +7,7 @@ package telas;
 import dao.AmigoDAO;
 import dao.EmprestimoDAO;
 import dao.FerramentaDAO;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 import modelo.Emprestimo;
@@ -43,6 +44,7 @@ public class JFMenu extends javax.swing.JFrame {
         JBEmprestarFerramenta = new javax.swing.JButton();
         JBEstornar = new javax.swing.JButton();
         JBRelatorios = new javax.swing.JButton();
+        JBAtualizar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMAmigos = new javax.swing.JMenu();
         JMFerramentas = new javax.swing.JMenu();
@@ -127,6 +129,17 @@ public class JFMenu extends javax.swing.JFrame {
             }
         });
 
+        JBAtualizar.setBackground(new java.awt.Color(73, 159, 104));
+        JBAtualizar.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
+        JBAtualizar.setForeground(new java.awt.Color(255, 255, 255));
+        JBAtualizar.setText("Atualizar");
+        JBAtualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JBAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBAtualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -134,9 +147,11 @@ public class JFMenu extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JBAtualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(JBRelatorios, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -148,8 +163,10 @@ public class JFMenu extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(JBAtualizar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 366, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -212,6 +229,10 @@ public class JFMenu extends javax.swing.JFrame {
         EmprestimoDAO dao = new EmprestimoDAO();
         ArrayList<Emprestimo> ferramentas = dao.getMinhaLista();
         DefaultTableModel model = (DefaultTableModel) JTEmprestimos.getModel();
+        
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
 
         for (Emprestimo emp : ferramentas) {
             if (emp.getQuantidade() != 0) {
@@ -221,7 +242,8 @@ public class JFMenu extends javax.swing.JFrame {
                     nomeAmigo, 
                     nomeFerramenta, 
                     emp.getQuantidade(), 
-                    emp.getDataEmprestimo(), 
+                    new SimpleDateFormat("dd/MM/yyyy").format(emp.getDataEmprestimo()), 
+                    // https://stackoverflow.com/questions/4772425/change-date-format-in-a-java-string
                 });
             }
         }
@@ -264,6 +286,10 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_JMAmigosMouseClicked
 
+    private void JBAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAtualizarActionPerformed
+        renderEmprestimosTable();
+    }//GEN-LAST:event_JBAtualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -300,6 +326,7 @@ public class JFMenu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBAtualizar;
     private javax.swing.JButton JBEmprestarFerramenta;
     private javax.swing.JButton JBEstornar;
     private javax.swing.JButton JBRelatorios;

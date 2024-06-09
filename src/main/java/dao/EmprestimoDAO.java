@@ -160,11 +160,16 @@ public class EmprestimoDAO {
         }
     }
 
-    public int getQuantidadeFerramentaAlugada(int id) {
+    /**
+     * Retorna a quantiade de ferramentas alugada de um tipo específico de ferramenta
+     * @param idFerramenta id da ferramenta
+     * @return
+     */
+    public int getQuantidadeFerramentaAlugada(int idFerramenta) {
         int total = 0;
 
         for (Emprestimo emp : this.getMinhaLista()) {
-            if (emp.getFerramenta() == id) {
+            if (emp.getFerramenta() == idFerramenta) {
                 total += emp.getQuantidade();
             }
         }
@@ -173,7 +178,7 @@ public class EmprestimoDAO {
     }
 
     /**
-     *
+     * Retorna a lista de id de ferramentas alugada por um amigo específico
      * @param idAmigo
      * @return
      */
@@ -190,6 +195,12 @@ public class EmprestimoDAO {
         return ferramentas;
     }
 
+    /**
+     * Retorna a quantidade de uma ferramenta especifica alugada por um amigo específico
+     * @param idAmg id do amigo
+     * @param idFer id da ferramenta
+     * @return
+     */
     public int getQuantidadeClienteAlugouDeFerramenta(int idAmg, int idFer) {
         int total = 0;
         for (Emprestimo emp : getMinhaLista()) {
@@ -218,6 +229,11 @@ public class EmprestimoDAO {
         }
     }
 
+    /**
+     * Retorna a lista de amigos junto com a quantidade de aluguéis já feito
+     * Ordenada pela ordem de quantidade de aluguéis por ordem decrescente
+     * @return
+     */
     public ArrayList<Integer[]> getAmigosPorAlugueis() {
         ArrayList<Integer[]> amigosEmprestimos = new ArrayList<Integer[]>();
         String sql = "SELECT amigo, COUNT(id) AS quantidade_emprestimos FROM TBEmprestimos GROUP BY  amigo ORDER BY quantidade_emprestimos DESC"; // TODO: data
