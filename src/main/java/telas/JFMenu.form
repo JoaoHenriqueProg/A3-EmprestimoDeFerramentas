@@ -20,7 +20,7 @@
         </Property>
       </Properties>
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
+        <Menu class="javax.swing.JMenu" name="JMAmigos">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fc" green="ff" red="ff" type="rgb"/>
@@ -28,48 +28,22 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fc" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Gerenciamento"/>
+            <Property name="text" type="java.lang.String" value="Amigos"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu1ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JMAmigosMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMAmigosActionPerformed"/>
           </Events>
-          <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGerenciaCliente">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Gerenciar clientes"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemGerenciaClienteActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemGerenciaFerramenta">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Gerenciar ferramentas"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemGerenciaFerramentaActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItemDevolverFerramentas">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Devolver ferramentas"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItemDevolverFerramentasActionPerformed"/>
-              </Events>
-            </MenuItem>
-          </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="JMConfiguracoes">
+        <Menu class="javax.swing.JMenu" name="JMFerramentas">
           <Properties>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="fc" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
+            <Property name="text" type="java.lang.String" value="Ferramentas"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JMConfiguracoesMouseClicked"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JMConfiguracoesActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JMFerramentasMouseClicked"/>
           </Events>
         </Menu>
       </SubComponents>
@@ -190,10 +164,10 @@
                 </Property>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="4" rowCount="0">
-                    <Column editable="false" title="Cliente" type="java.lang.String"/>
+                    <Column editable="false" title="Amigo" type="java.lang.String"/>
                     <Column editable="false" title="Ferramenta" type="java.lang.String"/>
                     <Column editable="true" title="Quantidade" type="java.lang.String"/>
-                    <Column editable="false" title="Desde" type="java.lang.Object"/>
+                    <Column editable="false" title="Desde:" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">

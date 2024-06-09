@@ -44,11 +44,8 @@ public class JFMenu extends javax.swing.JFrame {
         JBEstornar = new javax.swing.JButton();
         JBRelatorios = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItemGerenciaCliente = new javax.swing.JMenuItem();
-        jMenuItemGerenciaFerramenta = new javax.swing.JMenuItem();
-        jMenuItemDevolverFerramentas = new javax.swing.JMenuItem();
-        JMConfiguracoes = new javax.swing.JMenu();
+        JMAmigos = new javax.swing.JMenu();
+        JMFerramentas = new javax.swing.JMenu();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -69,7 +66,7 @@ public class JFMenu extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Cliente", "Ferramenta", "Quantidade", "Desde"
+                "Amigo", "Ferramenta", "Quantidade", "Desde:"
             }
         ) {
             Class[] types = new Class [] {
@@ -168,54 +165,29 @@ public class JFMenu extends javax.swing.JFrame {
         jMenuBar1.setBorder(null);
         jMenuBar1.setForeground(new java.awt.Color(255, 255, 252));
 
-        jMenu1.setBackground(new java.awt.Color(255, 255, 252));
-        jMenu1.setForeground(new java.awt.Color(255, 255, 252));
-        jMenu1.setText("Gerenciamento");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItemGerenciaCliente.setText("Gerenciar clientes");
-        jMenuItemGerenciaCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciaClienteActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemGerenciaCliente);
-
-        jMenuItemGerenciaFerramenta.setText("Gerenciar ferramentas");
-        jMenuItemGerenciaFerramenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemGerenciaFerramentaActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemGerenciaFerramenta);
-
-        jMenuItemDevolverFerramentas.setText("Devolver ferramentas");
-        jMenuItemDevolverFerramentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemDevolverFerramentasActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItemDevolverFerramentas);
-
-        jMenuBar1.add(jMenu1);
-
-        JMConfiguracoes.setForeground(new java.awt.Color(255, 255, 252));
-        JMConfiguracoes.setText("Configurações");
-        JMConfiguracoes.addMouseListener(new java.awt.event.MouseAdapter() {
+        JMAmigos.setBackground(new java.awt.Color(255, 255, 252));
+        JMAmigos.setForeground(new java.awt.Color(255, 255, 252));
+        JMAmigos.setText("Amigos");
+        JMAmigos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JMConfiguracoesMouseClicked(evt);
+                JMAmigosMouseClicked(evt);
             }
         });
-        JMConfiguracoes.addActionListener(new java.awt.event.ActionListener() {
+        JMAmigos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMConfiguracoesActionPerformed(evt);
+                JMAmigosActionPerformed(evt);
             }
         });
-        jMenuBar1.add(JMConfiguracoes);
+        jMenuBar1.add(JMAmigos);
+
+        JMFerramentas.setForeground(new java.awt.Color(255, 255, 252));
+        JMFerramentas.setText("Ferramentas");
+        JMFerramentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JMFerramentasMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(JMFerramentas);
 
         setJMenuBar(jMenuBar1);
 
@@ -255,12 +227,6 @@ public class JFMenu extends javax.swing.JFrame {
         }
     }
 
-    private void jMenuItemGerenciaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaClienteActionPerformed
-        JFGerenciarAmigos objeto = new JFGerenciarAmigos();
-        objeto.setLocationRelativeTo(null);
-        objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemGerenciaClienteActionPerformed
-
     private void JBEmprestarFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmprestarFerramentaActionPerformed
         JFCriarAluguel objeto = new JFCriarAluguel();
         objeto.setLocationRelativeTo(null);
@@ -273,27 +239,9 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_JBEstornarActionPerformed
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+    private void JMAmigosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMAmigosActionPerformed
 
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenuItemGerenciaFerramentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemGerenciaFerramentaActionPerformed
-        JFGerenciarFerramentas objeto = new JFGerenciarFerramentas();
-        objeto.setLocationRelativeTo(null);
-        objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemGerenciaFerramentaActionPerformed
-
-    private void JMConfiguracoesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMConfiguracoesActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_JMConfiguracoesActionPerformed
-
-    private void JMConfiguracoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMConfiguracoesMouseClicked
-        // TODO add your handling code here:
-                JFConfiguracoes objeto = new JFConfiguracoes();
-                objeto.setLocationRelativeTo(null);
-                objeto.setVisible(true);
-    }//GEN-LAST:event_JMConfiguracoesMouseClicked
+    }//GEN-LAST:event_JMAmigosActionPerformed
 
     private void JBRelatoriosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBRelatoriosActionPerformed
         // TODO add your handling code here:
@@ -302,12 +250,19 @@ public class JFMenu extends javax.swing.JFrame {
         objeto.setVisible(true);
     }//GEN-LAST:event_JBRelatoriosActionPerformed
 
-    private void jMenuItemDevolverFerramentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemDevolverFerramentasActionPerformed
+    private void JMFerramentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMFerramentasMouseClicked
         // TODO add your handling code here:
-        JFDevolverFerramenta objeto = new JFDevolverFerramenta();
+        JFGerenciarFerramentas objeto = new JFGerenciarFerramentas();
         objeto.setLocationRelativeTo(null);
         objeto.setVisible(true);
-    }//GEN-LAST:event_jMenuItemDevolverFerramentasActionPerformed
+    }//GEN-LAST:event_JMFerramentasMouseClicked
+
+    private void JMAmigosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMAmigosMouseClicked
+        // TODO add your handling code here:
+        JFGerenciarAmigos objeto = new JFGerenciarAmigos();
+        objeto.setLocationRelativeTo(null);
+        objeto.setVisible(true);
+    }//GEN-LAST:event_JMAmigosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -348,15 +303,12 @@ public class JFMenu extends javax.swing.JFrame {
     private javax.swing.JButton JBEmprestarFerramenta;
     private javax.swing.JButton JBEstornar;
     private javax.swing.JButton JBRelatorios;
-    private javax.swing.JMenu JMConfiguracoes;
+    private javax.swing.JMenu JMAmigos;
+    private javax.swing.JMenu JMFerramentas;
     private javax.swing.JTable JTEmprestimos;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItemDevolverFerramentas;
-    private javax.swing.JMenuItem jMenuItemGerenciaCliente;
-    private javax.swing.JMenuItem jMenuItemGerenciaFerramenta;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
