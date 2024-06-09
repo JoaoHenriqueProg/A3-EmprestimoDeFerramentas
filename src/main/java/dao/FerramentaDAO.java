@@ -21,7 +21,7 @@ public class FerramentaDAO {
             while (res.next()) {
                 int id = res.getInt("id");
                 String nome = res.getString("nome");
-                double preco = res.getInt("preco");
+                double preco = res.getDouble("preco");
                 int quantidade = res.getInt("quantidade");
                 Ferramenta objeto = new Ferramenta(nome, id, preco, quantidade);
                 minhaLista.add(objeto);
