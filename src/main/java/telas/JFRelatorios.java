@@ -66,6 +66,7 @@ public class JFRelatorios extends javax.swing.JFrame {
                 model.addRow(new Object[]{
                     amiDao.carregaAmigo(emprestimos.get(i).getAmigo()).getNome(),
                     ferDao.carregaFerramenta(emprestimos.get(i).getFerramenta()).getNome(),
+                    emprestimos.get(i).getDataEmprestimo(),
                     emprestimos.get(i).getDataDevolucao()
 
                 });
@@ -225,11 +226,11 @@ public class JFRelatorios extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Amigo", "Ferramenta", "Data"
+                "Amigo", "Ferramenta", "Data de Empréstimo", "Data de Devolução"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -333,9 +334,11 @@ public class JFRelatorios extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(54, 70, 125));
 
+        jMenu1.setForeground(new java.awt.Color(255, 255, 252));
         jMenu1.setText("Início");
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setForeground(new java.awt.Color(255, 255, 252));
         jMenu2.setText("Configurações");
         jMenuBar1.add(jMenu2);
 
