@@ -24,28 +24,16 @@ CREATE TABLE TBAmigos(
 	PRIMARY KEY(id)
 );
 
-# Cria a tabela de histórico
-CREATE DATABASE IF NOT EXISTS TBRegistros;
-USE TBRegistros;
-DROP TABLE IF EXISTS TBRegistros;
-CREATE TABLE TBRegistros(
-	id INTEGER NOT NULL,
-	tipo INT,
-    amigo INT,
-    ferramenta INT,
-	PRIMARY KEY(id)
-);
-
 # Cria a tabela de empréstimos
 CREATE DATABASE IF NOT EXISTS TBEmprestimos;
 USE TBEmprestimos;
 DROP TABLE IF EXISTS TBEmprestimos;
 CREATE TABLE TBEmprestimos(
 	id INTEGER NOT NULL,
-    amigo INT,
-    ferramenta INT,
-    quantidade INT,
-    data_inicio DATE DEFAULT (CURRENT_DATE),
-    data_final DATE,
+	amigo INT,
+	ferramenta INT,
+	quantidade INT,
+	data_inicio DATE DEFAULT (CURRENT_DATE),
+	data_final DATE,
 	PRIMARY KEY(id)
 );
