@@ -373,37 +373,36 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
     private void JBGerarAluguelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBGerarAluguelActionPerformed
         if (JTFerramentas.getRowCount() == 0) {
-            JOptionPane.showMessageDialog(null,"A tabela de aluguéis está vazia");
+            JOptionPane.showMessageDialog(null, "A tabela de aluguéis está vazia");
             return;
         }
         if (JCBAmigos.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null,"Não há nenhum amigo selecionado");
+            JOptionPane.showMessageDialog(null, "Não há nenhum amigo selecionado");
             return;
         }
-        
+
         EmprestimoDAO dao = new EmprestimoDAO();
-        int idamigo = Integer.parseInt(((String)JCBAmigos.getSelectedItem()).split(" ")[0]);
-        if (dao.getFerramentasAlugadasPorAmigo(idamigo).size()>0){
+        int idamigo = Integer.parseInt(((String) JCBAmigos.getSelectedItem()).split(" ")[0]);
+        if (dao.getFerramentasAlugadasPorAmigo(idamigo).size() > 0) {
             String erro = "Esse amigo está devendo uma ferramenta.\n";
-                erro += "Deseja continuar com essa ação?";
-                int pedroCertezas = JOptionPane.showConfirmDialog(null, erro, "Operação perigosa", YES_NO_OPTION);
-                if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
-                    return;
-                }
-                
+            erro += "Deseja continuar com essa ação?";
+            int pedroCertezas = JOptionPane.showConfirmDialog(null, erro, "Operação perigosa", YES_NO_OPTION);
+            if (pedroCertezas == 1 || pedroCertezas == -1) { // 1 = não e -1 = fechou a janela sem responder
+                return;
+            }
         }
         for (int i = 0; i < JTFerramentas.getRowCount(); i++) {
             Emprestimo emp = new Emprestimo(
-                    dao.maiorID() + 1, 
-                    Integer.parseInt(((String)JCBAmigos.getSelectedItem()).split(" ")[0]),
-                    Integer.parseInt(((String)JTFerramentas.getValueAt(i, 0)).split(" ")[0]),
+                    dao.maiorID() + 1,
+                    Integer.parseInt(((String) JCBAmigos.getSelectedItem()).split(" ")[0]),
+                    Integer.parseInt(((String) JTFerramentas.getValueAt(i, 0)).split(" ")[0]),
                     (int) JTFerramentas.getValueAt(i, 1),
                     new Date(),
                     new Date()
             );
-            dao.insertEmprestimoBD(emp);
-        renderFerramentasTable();
+            dao.insertEmprestimoBD(emp);   
         }
+        renderFerramentasTable();
     }//GEN-LAST:event_JBGerarAluguelActionPerformed
 
     private void JCBFerramentasPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_JCBFerramentasPropertyChange
@@ -416,7 +415,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
 
     private void JBAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAdicionarActionPerformed
         if (JCBFerramentas.getSelectedItem() == null) {
-            JOptionPane.showMessageDialog(null,"Nenhuma ferramenta selecionada");
+            JOptionPane.showMessageDialog(null, "Nenhuma ferramenta selecionada");
             return;
         }
         if ((int) JSQuantidade.getValue() == 0) {
