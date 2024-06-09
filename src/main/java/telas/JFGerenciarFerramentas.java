@@ -66,7 +66,7 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Double.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -77,6 +77,9 @@ public class JFGerenciarFerramentas extends javax.swing.JFrame {
         JTFerramentas.setGridColor(new java.awt.Color(51, 51, 51));
         JTFerramentas.setShowGrid(false);
         jScrollPane1.setViewportView(JTFerramentas);
+        if (JTFerramentas.getColumnModel().getColumnCount() > 0) {
+            JTFerramentas.getColumnModel().getColumn(0).setMaxWidth(36);
+        }
 
         JBAdicionar.setBackground(new java.awt.Color(73, 159, 104));
         JBAdicionar.setText("Adicionar");

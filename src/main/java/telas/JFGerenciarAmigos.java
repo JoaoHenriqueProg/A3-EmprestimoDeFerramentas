@@ -111,18 +111,18 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         JTAmigos.setFont(new java.awt.Font("Comic Sans MS", 0, 12)); // NOI18N
         JTAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"123", "Usuario inicial", null, "(48) 91234-5678", "12"},
-                {null, null, null, null, null}
+                {null, "Usuario inicial", null, "(48) 91234-5678"},
+                {null, null, null, null}
             },
             new String [] {
-                "Id", "Nome", "Endereco", "Número", "Quantidade de ferramenta"
+                "Id", "Nome", "Endereco", "Número"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, true, true, true, true
+                false, true, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -139,14 +139,11 @@ public class JFGerenciarAmigos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(JTAmigos);
         if (JTAmigos.getColumnModel().getColumnCount() > 0) {
             JTAmigos.getColumnModel().getColumn(0).setResizable(false);
-            JTAmigos.getColumnModel().getColumn(0).setPreferredWidth(10);
             JTAmigos.getColumnModel().getColumn(1).setResizable(false);
             JTAmigos.getColumnModel().getColumn(1).setPreferredWidth(150);
             JTAmigos.getColumnModel().getColumn(2).setResizable(false);
             JTAmigos.getColumnModel().getColumn(3).setResizable(false);
             JTAmigos.getColumnModel().getColumn(3).setPreferredWidth(50);
-            JTAmigos.getColumnModel().getColumn(4).setResizable(false);
-            JTAmigos.getColumnModel().getColumn(4).setPreferredWidth(10);
         }
 
         jLabel5.setText("Id");
