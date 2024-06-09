@@ -2,6 +2,13 @@
   <h1> A3 • Sistema de Empréstimo de Ferramentas</h1>
  </div>
 
+### Integrantes
+
+- #### João Henrique Martins da Silva (JoaoHenriqueProg, 10724112482)
+- #### Isadora Dahmer Barbosa (isadahmerb, 10724111923)
+- #### Leandro de Medeiros Filho (y-leandro, 1072411172)
+- #### Victor Lima Carvalho da Silva (venuslima, 1072411623)
+
 <div>
   <h3>Descrição do projeto</h3>
   O trabalho consiste em desenvolver um software com o problema que foi contextualizado na universidade, um familiar solicita por um software que organize o emprestimo de ferramentas ao seus conhecidos, o ToolBarão   resolve de forma simplificada.
