@@ -400,7 +400,7 @@ public class JFCriarAluguel extends javax.swing.JFrame {
                     new Date(),
                     new Date()
             );
-            dao.insertEmprestimoBD(emp);   
+            dao.insertEmprestimoBD(emp);
         }
         renderFerramentasTable();
     }//GEN-LAST:event_JBGerarAluguelActionPerformed
